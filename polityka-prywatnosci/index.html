@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Polityka prywatności badania Human AI Lab.">
+  <title>Human AI Lab - Polityka prywatności</title>
+  <link rel="icon" href="../assets/logo-humanai-lab.png">
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0c1729;
+      --panel: rgba(10, 18, 33, 0.84);
+      --text: #f4f8ff;
+      --muted: #bfd0e8;
+      --line: rgba(165, 210, 255, 0.16);
+      --accent: #67e8f9;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+      --radius: 28px;
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(103, 232, 249, 0.12), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    header { padding: 18px 0 14px; }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand img {
+      display: block;
+      width: auto;
+      height: clamp(58px, 12vw, 96px);
+      max-width: min(420px, 78vw);
+    }
+
+    .topbar-note {
+      display: none;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: right;
+    }
+
+    .hero {
+      display: grid;
+      gap: 16px;
+      padding: 16px 0 10px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      width: fit-content;
+      border: 1px solid rgba(103, 232, 249, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      font-size: 13px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 7vw, 3.4rem);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      max-width: 16ch;
+    }
+
+    p {
+      margin: 0 0 14px;
+      max-width: 74ch;
+      color: var(--muted);
+    }
+
+    main {
+      padding: 8px 0 56px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)), rgba(8, 15, 28, 0.76);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    h2 {
+      margin: 26px 0 12px;
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      letter-spacing: -0.04em;
+      color: var(--text);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li { margin: 8px 0; }
+
+    .contact-box {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(191, 208, 232, 0.12);
+    }
+
+    footer {
+      padding: 18px 0 34px;
+      color: rgba(191, 208, 232, 0.76);
+      font-size: 0.92rem;
+    }
+
+    @media (min-width: 900px) {
+      header { padding: 24px 0 18px; }
+
+      .topbar {
+        margin-bottom: 24px;
+      }
+
+      .topbar-note {
+        display: block;
+      }
+
+      .brand img {
+        height: clamp(72px, 7vw, 112px);
+        max-width: 460px;
+      }
+
+      .hero {
+        gap: 18px;
+        padding-top: 4px;
+      }
+
+      .panel {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand img {
+        height: clamp(46px, 14vw, 70px);
+        max-width: min(320px, 74vw);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <div class="wrap">
+      <div class="topbar" aria-label="Brand header">
+        <a class="brand" href="../" aria-label="Human AI Lab">
+          <img src="../assets/logo-humanai-lab.png" alt="Human AI Lab">
+        </a>
+        <div class="topbar-note">Anonimowe badanie psychologiczne</div>
+      </div>
+
+      <div class="hero">
+        <div class="badge">Polityka prywatności</div>
+        <h1>Informacje o prywatności w badaniu Human AI Lab</h1>
+        <p>Ta strona opisuje, jak traktujemy dane w badaniu Human AI Lab oraz jak działa formularz rekrutacyjny osadzony w Google Forms.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section class="panel" aria-label="Polityka prywatności">
+        <p><strong>Kto prowadzi badanie:</strong> badanie prowadzi Human AI Lab w ramach pracy magisterskiej z psychologii.</p>
+        <p><strong>Cel badania:</strong> celem badania jest zrozumienie sposobów korzystania z chatbotów AI przez osoby dorosłe.</p>
+        <p><strong>Dobrowolność udziału:</strong> udział jest całkowicie dobrowolny. W każdej chwili można przerwać wypełnianie formularza bez podawania przyczyny.</p>
+        <p><strong>Zakres zbieranych danych:</strong> zbieramy odpowiedzi dotyczące korzystania z chatbotów AI, samopoczucia, kontekstu korzystania oraz podstawowe dane potrzebne do opisu grupy badanej. Formularz badawczy nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail uczestnika.</p>
+        <p><strong>Google Forms:</strong> formularz badawczy jest obsługiwany przez Google Forms. Korzystamy z tego rozwiązania, ponieważ umożliwia bezpieczne zebranie odpowiedzi, zapis danych w arkuszu oraz ograniczenie zakresu zbieranych informacji.</p>
+        <p><strong>GitHub Pages:</strong> strona informacyjna i strona badania są publikowane w serwisie GitHub Pages jako publiczny landing projektu.</p>
+        <p><strong>Analiza wyników:</strong> odpowiedzi będą analizowane wyłącznie zbiorczo. Nie publikujemy danych indywidualnych ani danych umożliwiających identyfikację uczestników.</p>
+        <p><strong>Badanie a diagnoza:</strong> badanie nie jest diagnozą ani terapią. Nie służy do stawiania rozpoznań ani udzielania indywidualnych zaleceń klinicznych.</p>
+        <div class="contact-box">
+          <strong>Kontakt:</strong> <a href="mailto:humanai.lab.edu@gmail.com">humanai.lab.edu@gmail.com</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Human AI Lab - polityka prywatności badania.
+    </div>
+  </footer>
+</body>
+</html>
