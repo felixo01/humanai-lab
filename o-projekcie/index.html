@@ -552,6 +552,11 @@
       .timeline-grid {
         grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
       }
+
+      .split > .cards-grid,
+      .timeline-grid > .cards-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (min-width: 980px) {
@@ -575,6 +580,11 @@
 
       .feature-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .split > .cards-grid,
+      .timeline-grid > .cards-grid {
+        grid-template-columns: 1fr;
       }
     }
 
