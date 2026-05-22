@@ -16,17 +16,24 @@
       --bg: #06111f;
       --bg-soft: #0b1728;
       --panel: rgba(255, 255, 255, 0.04);
+      --panel-strong: rgba(10, 21, 36, 0.78);
       --line: rgba(255, 255, 255, 0.10);
+      --line-strong: rgba(110, 231, 249, 0.18);
       --text: #f5f8ff;
       --muted: #b8c9e6;
       --accent: #6ee7f9;
       --accent-blue: #2f80ff;
       --glow: 0 26px 70px rgba(0, 0, 0, 0.36);
-      --max: 1120px;
+      --max: 1160px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -41,8 +48,14 @@
       text-rendering: optimizeLegibility;
     }
 
-    a { color: inherit; }
-    img { max-width: 100%; display: block; }
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     .wrap {
       width: min(var(--max), calc(100% - 40px));
@@ -62,7 +75,7 @@
       pointer-events: none;
       z-index: -1;
       filter: blur(72px);
-      opacity: 0.4;
+      opacity: 0.42;
     }
 
     .shell::before {
@@ -95,6 +108,7 @@
       display: inline-flex;
       align-items: center;
       text-decoration: none;
+      min-width: 0;
     }
 
     .brand img {
@@ -110,20 +124,19 @@
       text-align: right;
     }
 
-    .hero {
-      display: grid;
-      gap: 24px;
-      padding: 18px 0 24px;
+    header {
+      padding-bottom: 18px;
     }
 
-    .hero-panel {
-      padding: 22px;
-      border-radius: 28px;
-      border: 1px solid rgba(110, 231, 249, 0.14);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
-        rgba(9, 19, 33, 0.76);
-      box-shadow: var(--glow);
+    .hero {
+      display: grid;
+      gap: 26px;
+      padding: 18px 0 28px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
     }
 
     .mini-label {
@@ -145,24 +158,30 @@
       box-shadow: 0 0 0 6px rgba(110, 231, 249, 0.08);
     }
 
-    h1, h2, h3, p { margin: 0; }
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
 
     h1 {
-      font-size: clamp(2.4rem, 9vw, 4.2rem);
-      line-height: 0.98;
+      max-width: 10.5ch;
+      font-size: clamp(2.5rem, 9vw, 4.6rem);
+      line-height: 0.96;
       letter-spacing: -0.06em;
-      max-width: 11ch;
     }
 
     h2 {
-      font-size: clamp(1.7rem, 5vw, 2.5rem);
-      line-height: 1.05;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      line-height: 1.04;
       letter-spacing: -0.05em;
       margin-bottom: 14px;
     }
 
     h3 {
       font-size: 1.05rem;
+      line-height: 1.3;
       margin-bottom: 8px;
     }
 
@@ -170,14 +189,15 @@
     .section-copy p,
     .card p,
     .faq-item p,
+    .muted,
     .footer {
       color: var(--muted);
     }
 
     .lead {
       margin-top: 18px;
-      max-width: 62ch;
-      font-size: clamp(1rem, 2.9vw, 1.15rem);
+      max-width: 60ch;
+      font-size: clamp(1rem, 2.9vw, 1.16rem);
     }
 
     .hero-actions {
@@ -200,7 +220,9 @@
       transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
 
-    .btn:hover { transform: translateY(-1px); }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
 
     .btn:focus-visible,
     .brand:focus-visible,
@@ -222,23 +244,124 @@
       background: rgba(255, 255, 255, 0.04);
     }
 
-    main { padding-bottom: 56px; }
+    .hero-visual-card,
+    .panel,
+    .card,
+    .faq-item,
+    .timeline-card,
+    .quote-card,
+    .cta-panel {
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+        var(--panel-strong);
+      box-shadow: var(--glow);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-visual-card {
+      position: relative;
+      overflow: hidden;
+      padding: 14px;
+      min-height: 340px;
+      isolation: isolate;
+    }
+
+    .hero-visual-card::before {
+      content: "";
+      position: absolute;
+      top: 12%;
+      right: 10%;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(110, 231, 249, 0.22), transparent 68%);
+      filter: blur(28px);
+      z-index: 0;
+    }
+
+    .hero-visual-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(6, 17, 31, 0.1), rgba(6, 17, 31, 0.26)),
+        radial-gradient(circle at 14% 50%, rgba(6, 17, 31, 0.74), transparent 28%),
+        radial-gradient(circle at 88% 50%, rgba(6, 17, 31, 0.54), transparent 24%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-visual {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      border-radius: 22px;
+      filter: saturate(1.08) contrast(1.03);
+    }
+
+    .visual-notes {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      z-index: 2;
+    }
+
+    .note-chip {
+      padding: 12px 12px 11px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: linear-gradient(180deg, rgba(8, 16, 28, 0.78), rgba(8, 16, 28, 0.6));
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .note-chip strong {
+      display: block;
+      font-size: 0.98rem;
+      margin-bottom: 3px;
+    }
+
+    .note-chip span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    main {
+      padding-bottom: 56px;
+    }
 
     section {
-      padding: 34px 0;
+      padding: 42px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .grid,
+    .section-head {
+      max-width: 50rem;
+      margin-bottom: 20px;
+    }
+
+    .split,
     .cards-grid,
-    .faq-grid {
+    .faq-grid,
+    .feature-grid,
+    .timeline-grid {
       display: grid;
       gap: 16px;
     }
 
-    .grid,
+    .split,
     .cards-grid,
-    .faq-grid {
+    .faq-grid,
+    .feature-grid,
+    .timeline-grid {
       grid-template-columns: 1fr;
     }
 
@@ -247,18 +370,124 @@
       gap: 14px;
     }
 
+    .inline-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
     .card,
-    .faq-item {
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
-      backdrop-filter: blur(14px);
+    .timeline-card,
+    .quote-card,
+    .panel {
+      padding: 20px;
     }
 
     .card {
-      padding: 18px;
       min-height: 100%;
+    }
+
+    .icon-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .icon-badge {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      border: 1px solid rgba(110, 231, 249, 0.18);
+      background: linear-gradient(180deg, rgba(110, 231, 249, 0.08), rgba(47, 128, 255, 0.04));
+      color: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .icon-badge svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .feature-grid .card,
+    .cards-grid .card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-grid .card::before,
+    .cards-grid .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(110, 231, 249, 0.04), transparent 36%),
+        radial-gradient(circle at top right, rgba(47, 128, 255, 0.08), transparent 28%);
+      pointer-events: none;
+    }
+
+    .quote-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-card::before {
+      content: "";
+      position: absolute;
+      inset: auto auto 18px 18px;
+      width: 74px;
+      height: 74px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(110, 231, 249, 0.12), rgba(47, 128, 255, 0.06));
+      filter: blur(10px);
+      opacity: 0.7;
+    }
+
+    .quote-text {
+      position: relative;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      max-width: 34rem;
+    }
+
+    .timeline-grid {
+      align-items: start;
+    }
+
+    .timeline-card {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 16px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 12px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .timeline-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      margin-top: 7px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+      box-shadow: 0 0 0 6px rgba(110, 231, 249, 0.08);
     }
 
     .faq-item {
@@ -273,8 +502,20 @@
       color: var(--text);
     }
 
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item p { padding: 0 18px 18px; }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item p {
+      padding: 0 18px 18px;
+    }
+
+    .cta-panel {
+      padding: 24px;
+      background:
+        linear-gradient(135deg, rgba(110, 231, 249, 0.10), rgba(47, 128, 255, 0.05)),
+        rgba(13, 24, 40, 0.84);
+    }
 
     .footer {
       padding: 18px 0 34px;
@@ -282,32 +523,69 @@
       font-size: 0.95rem;
     }
 
-    .footer p + p { margin-top: 8px; }
+    .footer p + p {
+      margin-top: 8px;
+    }
 
-    @media (min-width: 620px) {
+    @media (min-width: 640px) {
       .cards-grid,
-      .faq-grid {
+      .faq-grid,
+      .feature-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (min-width: 768px) {
-      .wrap { width: min(var(--max), calc(100% - 48px)); }
-      section { padding: 56px 0; }
-      .grid { grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr); }
+      .wrap {
+        width: min(var(--max), calc(100% - 48px));
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .split {
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+        align-items: start;
+      }
+
+      .timeline-grid {
+        grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+      }
     }
 
     @media (min-width: 980px) {
-      .topbar-note { display: block; }
-      .hero { grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr); }
-      .cards-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .topbar-note {
+        display: block;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
+        gap: 34px;
+        padding: 28px 0 34px;
+      }
+
+      .hero-copy {
+        padding-top: 18px;
+      }
+
+      .cards-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 480px) {
       .brand img {
         height: clamp(46px, 14vw, 72px);
         max-width: min(320px, 74vw);
+      }
+
+      .visual-notes {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -324,20 +602,36 @@
         </div>
 
         <div class="hero">
-          <div>
+          <div class="hero-copy">
             <div class="mini-label"><span class="mini-dot"></span>O projekcie</div>
             <h1>Human AI Lab i kontekst badania</h1>
-            <p class="lead">Ta strona zbiera pełniejsze informacje o projekcie, anonimowości udziału, wykorzystaniu odpowiedzi oraz sposobie działania formularza badawczego.</p>
+            <p class="lead">To miejsce zbiera pełniejsze informacje o projekcie, anonimowości udziału, wykorzystaniu odpowiedzi i sposobie działania formularza badawczego.</p>
             <div class="hero-actions">
               <a class="btn primary" href="../#formularz">Przejdź do formularza</a>
               <a class="btn secondary" href="../">Wróć do strony głównej</a>
             </div>
           </div>
 
-          <div class="hero-panel">
-            <div class="mini-label"><span class="mini-dot"></span>Human AI Lab</div>
-            <h3>Projekt naukowo-badawczy</h3>
-            <p>Human AI Lab to autorski projekt naukowo-badawczy realizowany w ramach pracy magisterskiej z psychologii. Dotyczy sposobów korzystania z chatbotów AI przez osoby dorosłe oraz analizy wybranych wzorców korzystania i funkcjonowania psychologicznego.</p>
+          <div class="hero-visual-card" aria-label="Abstrakcyjna grafika projektu Human AI Lab">
+            <img class="hero-visual" src="../hero-visual.svg" alt="Abstrakcyjna grafika przedstawiająca sieć połączeń i świetlnych punktów na ciemnym tle">
+            <div class="visual-notes" aria-hidden="true">
+              <div class="note-chip">
+                <strong>Anonimowo</strong>
+                <span>bez danych kontaktowych</span>
+              </div>
+              <div class="note-chip">
+                <strong>10-15 minut</strong>
+                <span>orientacyjny czas udziału</span>
+              </div>
+              <div class="note-chip">
+                <strong>Online</strong>
+                <span>formularz internetowy</span>
+              </div>
+              <div class="note-chip">
+                <strong>Analiza zbiorcza</strong>
+                <span>bez wyniku indywidualnego</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -345,69 +639,164 @@
 
     <main>
       <section>
-        <div class="wrap grid">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="mini-label"><span class="mini-dot"></span>Human AI Lab</div>
+            <h2>Projekt o relacji człowieka z chatbotami AI</h2>
+            <p class="muted">Human AI Lab to autorski projekt naukowo-badawczy realizowany w ramach pracy magisterskiej z psychologii. Dotyczy sposobów korzystania z chatbotów AI przez osoby dorosłe oraz analizy wybranych wzorców korzystania i funkcjonowania psychologicznego.</p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="card">
+              <div class="icon-row">
+                <span class="icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg>
+                </span>
+                <div>
+                  <h3>Badanie empiryczne</h3>
+                  <p>Projekt koncentruje się na danych zebranych od osób, które faktycznie korzystają z chatbotów AI.</p>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="icon-row">
+                <span class="icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="M8 9h8M8 13h5"/></svg>
+                </span>
+                <div>
+                  <h3>Konkretne konteksty użycia</h3>
+                  <p>Interesuje nas korzystanie z AI w pracy, nauce, organizowaniu myśli i codziennych zadaniach.</p>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="icon-row">
+                <span class="icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 3v18M3 12h18"/></svg>
+                </span>
+                <div>
+                  <h3>Obraz zbiorczy</h3>
+                  <p>Najważniejsze są wzorce pojawiające się w grupie, a nie ocena pojedynczych osób.</p>
+                </div>
+              </div>
+            </article>
+            <article class="card">
+              <div class="icon-row">
+                <span class="icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 8v5l3 3"/><circle cx="12" cy="12" r="8"/></svg>
+                </span>
+                <div>
+                  <h3>Krótki i czytelny udział</h3>
+                  <p>Formularz zajmuje zwykle około 10-15 minut i można go wypełnić na telefonie lub komputerze.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap split">
           <div class="section-copy">
             <div class="mini-label"><span class="mini-dot"></span>Czego dotyczy badanie?</div>
             <h2>Chatboty AI w codziennym funkcjonowaniu</h2>
             <p>Badanie dotyczy tego, jak osoby dorosłe korzystają z chatbotów AI w pracy, nauce, organizowaniu myśli, szukaniu informacji i innych codziennych sytuacjach.</p>
             <p>Interesują nas wzorce korzystania w grupie, a nie ocena pojedynczych osób.</p>
           </div>
-          <div class="cards-grid">
-            <article class="card">
-              <div class="mini-label"><span class="mini-dot"></span>Dlaczego to ważne?</div>
-              <h3>Nowy obszar psychologii człowieka i AI</h3>
-              <p>Psychologia dopiero zaczyna opisywać, jak nowe narzędzia konwersacyjnej sztucznej inteligencji wpisują się w codzienne życie użytkowników.</p>
-            </article>
-            <article class="card">
-              <div class="mini-label"><span class="mini-dot"></span>Wiedza oparta na danych</div>
-              <h3>Liczą się realne doświadczenia</h3>
-              <p>Odpowiedzi uczestników pomagają budować rzetelniejszy obraz korzystania z chatbotów AI, zamiast opierać się wyłącznie na domysłach.</p>
-            </article>
-          </div>
+
+          <aside class="quote-card">
+            <div class="mini-label"><span class="mini-dot"></span>Dlaczego to ważne?</div>
+            <p class="quote-text">Psychologia dopiero zaczyna opisywać, jak nowe narzędzia konwersacyjnej sztucznej inteligencji wpisują się w codzienne życie użytkowników. Odpowiedzi uczestników pomagają budować wiedzę opartą na danych, a nie wyłącznie na intuicjach.</p>
+          </aside>
         </div>
       </section>
 
       <section>
-        <div class="wrap grid">
-          <div class="section-copy">
+        <div class="wrap timeline-grid">
+          <div class="timeline-card">
             <div class="mini-label"><span class="mini-dot"></span>Anonimowość i dobrowolność</div>
-            <h2>Udział jest dobrowolny i anonimowy</h2>
-            <p>Formularz badawczy nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail uczestnika.</p>
-            <p>Udział można przerwać w dowolnym momencie. Odpowiedzi będą analizowane wyłącznie zbiorczo.</p>
+            <h2>Jak chroniona jest anonimowość?</h2>
+            <div class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div>
+                <h3>Brak danych kontaktowych</h3>
+                <p class="muted">Formularz badawczy nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail uczestnika.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div>
+                <h3>Dobrowolny udział</h3>
+                <p class="muted">Udział można przerwać w dowolnym momencie bez podawania przyczyny.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-dot" aria-hidden="true"></span>
+              <div>
+                <h3>Analiza zbiorcza</h3>
+                <p class="muted">Odpowiedzi będą analizowane wyłącznie zbiorczo i wykorzystane do analizy naukowej.</p>
+              </div>
+            </div>
           </div>
+
           <div class="cards-grid">
             <article class="card">
-              <div class="mini-label"><span class="mini-dot"></span>Bez wyniku indywidualnego</div>
-              <h3>To nie jest ocena osoby</h3>
-              <p>Badanie nie zwraca wyniku indywidualnego i nie służy do oceny pojedynczych uczestników.</p>
+              <div class="icon-row">
+                <span class="icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="10" rx="2"/></svg>
+                </span>
+                <div>
+                  <h3>Bez wyniku indywidualnego</h3>
+                  <p>Badanie nie zwraca wyniku indywidualnego i nie służy do oceny pojedynczych uczestników.</p>
+                </div>
+              </div>
             </article>
             <article class="card">
-              <div class="mini-label"><span class="mini-dot"></span>Analiza naukowa</div>
-              <h3>Wykorzystanie odpowiedzi</h3>
-              <p>Odpowiedzi zostaną wykorzystane do analizy naukowej w ramach pracy magisterskiej z psychologii.</p>
+              <div class="icon-row">
+                <span class="icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M7 16V9"/><path d="M12 16V5"/><path d="M17 16v-3"/></svg>
+                </span>
+                <div>
+                  <h3>Wykorzystanie odpowiedzi</h3>
+                  <p>Odpowiedzi zostaną wykorzystane do analizy naukowej w ramach pracy magisterskiej z psychologii.</p>
+                </div>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
       <section>
-        <div class="wrap grid">
+        <div class="wrap split">
           <div class="section-copy">
             <div class="mini-label"><span class="mini-dot"></span>Google Forms</div>
             <h2>Dlaczego formularz jest osadzony?</h2>
             <p>Korzystamy z Google Forms, ponieważ umożliwia bezpieczne zebranie odpowiedzi, zapis danych w arkuszu i ograniczenie zakresu zbieranych informacji.</p>
             <p>Komunikat Google o możliwości zapisania postępów nie oznacza, że formularz badawczy zbiera adres e-mail uczestnika.</p>
           </div>
+
           <div class="cards-grid">
             <article class="card">
-              <div class="mini-label"><span class="mini-dot"></span>GitHub Pages</div>
-              <h3>Warstwa informacyjna projektu</h3>
-              <p>Strona Human AI Lab działa jako publiczny landing projektu i prowadzi do tego samego formularza badawczego.</p>
+              <div class="icon-row">
+                <span class="icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M6 4h8l4 4v12H6z"/><path d="M14 4v4h4"/></svg>
+                </span>
+                <div>
+                  <h3>Spójny przepływ udziału</h3>
+                  <p>Formularz jest osadzony na stronie, żeby użytkownik zachował kontekst badania i nie był od razu wyrzucany poza landing.</p>
+                </div>
+              </div>
             </article>
             <article class="card">
-              <div class="mini-label"><span class="mini-dot"></span>Bezpieczeństwo</div>
-              <h3>Minimalny zakres danych</h3>
-              <p>Formularz nie zbiera danych kontaktowych potrzebnych do bezpośredniej identyfikacji uczestnika.</p>
+              <div class="icon-row">
+                <span class="icon-badge" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M3 12h18"/><path d="M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
+                </span>
+                <div>
+                  <h3>Warstwa informacyjna projektu</h3>
+                  <p>Strona Human AI Lab działa jako publiczny landing projektu i prowadzi do tego samego formularza badawczego.</p>
+                </div>
+              </div>
             </article>
           </div>
         </div>
@@ -415,8 +804,12 @@
 
       <section>
         <div class="wrap">
-          <div class="mini-label"><span class="mini-dot"></span>FAQ</div>
-          <h2>Rozszerzone pytania i odpowiedzi</h2>
+          <div class="section-head">
+            <div class="mini-label"><span class="mini-dot"></span>FAQ</div>
+            <h2>Rozszerzone pytania i odpowiedzi</h2>
+            <p class="muted">Najważniejsze kwestie zebrane w jednym miejscu, bez przeładowania głównej strony.</p>
+          </div>
+
           <div class="faq-grid">
             <details class="faq-item">
               <summary>Czy badanie jest anonimowe?</summary>
@@ -443,9 +836,19 @@
               <p>Odpowiedzi zostaną wykorzystane do analizy naukowej w ramach pracy magisterskiej z psychologii.</p>
             </details>
           </div>
-          <div class="hero-actions">
-            <a class="btn primary" href="../#formularz">Przejdź do formularza</a>
-            <a class="btn secondary" href="../badanie/">Otwórz alternatywną stronę formularza</a>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="cta-panel">
+            <div class="mini-label"><span class="mini-dot"></span>Dalszy krok</div>
+            <h2>Przejdź do formularza, gdy masz komplet informacji</h2>
+            <p class="muted">Jeśli chcesz wziąć udział od razu, wróć do strony głównej i przejdź płynnie do osadzonego formularza albo otwórz alternatywną stronę formularza.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="../#formularz">Przejdź do formularza</a>
+              <a class="btn secondary" href="../badanie/">Alternatywna strona formularza</a>
+            </div>
           </div>
         </div>
       </section>
