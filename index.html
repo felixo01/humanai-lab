@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Anonimowe badanie dotyczące sposobów korzystania z chatbotów AI przez osoby dorosłe.">
+  <meta property="og:title" content="Human AI Lab">
+  <meta property="og:description" content="Anonimowe badanie dotyczące sposobów korzystania z chatbotów AI przez osoby dorosłe.">
+  <meta property="og:image" content="https://humanai-lab.com/assets/social-preview.png">
+  <meta property="og:url" content="https://humanai-lab.com/">
+  <meta property="og:type" content="website">
   <title>Human AI Lab</title>
   <link rel="icon" href="assets/logo-humanai-lab.png">
   <style>
@@ -215,6 +220,77 @@
 
     .card span { color: var(--muted); }
 
+    .steps {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .step {
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: var(--panel-2);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.16);
+    }
+
+    .step-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      margin-bottom: 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(207, 250, 254, 0.95), rgba(103, 232, 249, 0.95));
+      color: #06111d;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .step span { color: var(--muted); }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.14);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 18px 18px 16px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item p {
+      margin: 0;
+      padding: 0 18px 18px;
+      color: var(--muted);
+      max-width: none;
+    }
+
     .list {
       display: grid;
       gap: 12px;
@@ -272,6 +348,11 @@
       .hero-copy { padding-right: 20px; }
 
       main { padding-top: 20px; }
+
+      .steps,
+      .faq {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
 
       .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
@@ -348,6 +429,29 @@
 
     <section>
       <div class="wrap">
+        <h2>Jak wygląda udział?</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-index">1</div>
+            <strong>Zapoznajesz się z informacją o badaniu.</strong>
+            <span>Sprawdzasz, czego dotyczy projekt i jak będą wykorzystywane odpowiedzi.</span>
+          </div>
+          <div class="step">
+            <div class="step-index">2</div>
+            <strong>Wypełniasz anonimową ankietę online.</strong>
+            <span>Formularz jest prosty w obsłudze i dostępny na telefonie oraz komputerze.</span>
+          </div>
+          <div class="step">
+            <div class="step-index">3</div>
+            <strong>Odpowiedzi są analizowane wyłącznie zbiorczo.</strong>
+            <span>Interesuje nas obraz grupowy, a nie ocena pojedynczych osób.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
         <h2>Co warto wiedzieć</h2>
         <ul class="list">
           <li>Udział jest dobrowolny i anonimowy.</li>
@@ -361,9 +465,45 @@
 
     <section>
       <div class="wrap">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <details class="faq-item">
+            <summary>Czy badanie jest anonimowe?</summary>
+            <p>Tak. Formularz nie zbiera danych umożliwiających bezpośrednią identyfikację uczestnika.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Ile czasu zajmuje ankieta?</summary>
+            <p>Wypełnienie ankiety zajmuje zwykle około 10-15 minut.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Czy muszę mieć doświadczenie z ChatGPT?</summary>
+            <p>Nie. Wystarczy ogólne doświadczenie z chatbotami AI, takimi jak ChatGPT, Gemini, Claude lub Copilot.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Czy otrzymam swój wynik?</summary>
+            <p>Badanie nie ma charakteru diagnostycznego, więc nie zwraca wyniku indywidualnego.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Czy to jest diagnoza psychologiczna?</summary>
+            <p>Nie. To badanie naukowe, a nie diagnoza ani forma terapii.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Czy mogę przerwać udział?</summary>
+            <p>Tak. Udział jest dobrowolny i można zakończyć w dowolnym momencie.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Dlaczego formularz jest w Google Forms?</summary>
+            <p>To rozwiązanie umożliwia bezpieczne zebranie odpowiedzi, ich uporządkowanie i analizę zbiorczą.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
         <div class="cta-box">
           <h2>Jeśli chcesz, weź udział już teraz</h2>
-          <p>Twoja odpowiedź pomoże lepiej opisać, jak osoby dorosłe korzystają z chatbotów AI w codziennych sytuacjach. Ankieta jest krótka, anonimowa i prowadzona online.</p>
+          <p>Twoja odpowiedź pomoże lepiej opisać, jak osoby dorosłe korzystają z chatbotów AI w codziennych sytuacjach. Wypełnienie ankiety zajmuje zwykle około 10-15 minut.</p>
           <div class="actions">
             <a class="btn primary" href="badanie/">Weź udział w badaniu</a>
           </div>
@@ -378,8 +518,9 @@
 
   <footer>
     <div class="wrap">
-      <div>Human AI Lab - anonimowe badanie o korzystaniu z chatbotów AI.</div>
-      <div style="margin-top:8px;">Kontakt w sprawie badania: <a href="mailto:humanai.lab.edu@gmail.com">humanai.lab.edu@gmail.com</a></div>
+      <div>Human AI Lab</div>
+      <div style="margin-top:8px;">Badanie realizowane w ramach pracy magisterskiej z psychologii</div>
+      <div style="margin-top:8px;">Kontakt: <a href="mailto:humanai.lab.edu@gmail.com">humanai.lab.edu@gmail.com</a></div>
       <div style="margin-top:8px;"><a href="polityka-prywatnosci/">Polityka prywatności</a></div>
     </div>
   </footer>
