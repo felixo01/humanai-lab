@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Anonimowe badanie dotyczące sposobów korzystania z chatbotów AI przez osoby dorosłe.">
   <title>Human AI Lab</title>
+  <link rel="icon" href="assets/logo-humanai-lab.png">
   <style>
     :root {
       --bg: #07111f;
@@ -44,7 +45,38 @@
       margin: 0 auto;
     }
 
-    header { padding: 26px 0 22px; }
+    header { padding: 18px 0 22px; }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      min-width: 0;
+      flex: 0 1 auto;
+    }
+
+    .brand img {
+      display: block;
+      width: auto;
+      height: clamp(34px, 6vw, 48px);
+      max-width: min(260px, 68vw);
+    }
+
+    .topbar-note {
+      display: none;
+      color: var(--muted);
+      font-size: 0.92rem;
+      letter-spacing: 0.01em;
+      text-align: right;
+    }
 
     .hero {
       display: grid;
@@ -217,7 +249,15 @@
     }
 
     @media (min-width: 900px) {
-      header { padding: 42px 0 28px; }
+      header { padding: 24px 0 28px; }
+
+      .topbar {
+        margin-bottom: 24px;
+      }
+
+      .topbar-note {
+        display: block;
+      }
 
       .hero {
         grid-template-columns: 1.04fr 0.96fr;
@@ -237,20 +277,29 @@
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap hero">
-      <div class="hero-copy">
-        <div class="badge">Anonimowe badanie dla osób dorosłych</div>
-        <h1>Jak ludzie korzystają z chatbotów AI?</h1>
-        <p class="lead">Human AI Lab prowadzi anonimowe badanie dotyczące sposobów korzystania z chatbotów AI, takich jak ChatGPT, Gemini, Claude czy Copilot. Celem projektu jest lepsze zrozumienie, jak tego typu narzędzia pojawiają się w codziennym życiu, pracy, nauce i organizowaniu myśli.</p>
-        <div class="actions">
-          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLScliBX8Xmq6lZfgqDrGSHZGzzmWW9OACXD9MlOENf8d7qtODw/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">Weź udział w badaniu</a>
-          <a class="btn secondary" href="#o-badaniu">Dowiedz się więcej</a>
-        </div>
+  <header id="top">
+    <div class="wrap">
+      <div class="topbar" aria-label="Brand header">
+        <a class="brand" href="#top" aria-label="Human AI Lab">
+          <img src="assets/logo-humanai-lab.png" alt="Human AI Lab">
+        </a>
+        <div class="topbar-note">Anonimowe badanie psychologiczne</div>
       </div>
 
-      <div class="hero-media" aria-label="Grafika przedstawiająca nowoczesny, naukowy motyw związany z chatbotami AI">
-        <img src="hero-visual.svg" alt="Stylizowana grafika przedstawiająca człowieka, chatbota i sieć danych w ciemnym, naukowym stylu">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="badge">Anonimowe badanie dla osób dorosłych</div>
+          <h1>Jak ludzie korzystają z chatbotów AI?</h1>
+          <p class="lead">Human AI Lab prowadzi anonimowe badanie dotyczące sposobów korzystania z chatbotów AI, takich jak ChatGPT, Gemini, Claude czy Copilot. Celem projektu jest lepsze zrozumienie, jak tego typu narzędzia pojawiają się w codziennym życiu, pracy, nauce i organizowaniu myśli.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLScliBX8Xmq6lZfgqDrGSHZGzzmWW9OACXD9MlOENf8d7qtODw/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">Weź udział w badaniu</a>
+            <a class="btn secondary" href="#o-badaniu">Dowiedz się więcej</a>
+          </div>
+        </div>
+
+        <div class="hero-media" aria-label="Grafika przedstawiająca nowoczesny, naukowy motyw związany z chatbotami AI">
+          <img src="hero-visual.svg" alt="Stylizowana grafika przedstawiająca sieć danych i połączeń w ciemnym, naukowym stylu">
+        </div>
       </div>
     </div>
   </header>
