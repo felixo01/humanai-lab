@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Human AI Lab | O projekcie</title>
+  <meta name="description" content="Dowiedz się więcej o projekcie Human AI Lab, anonimowym badaniu naukowym dotyczącym korzystania z chatbotów AI przez osoby dorosłe.">
+  <meta property="og:title" content="Human AI Lab - o projekcie">
+  <meta property="og:description" content="Poznaj założenia projektu Human AI Lab, anonimowość badania i sposób wykorzystania odpowiedzi.">
+  <meta property="og:image" content="https://humanai-lab.com/assets/social-preview.png">
+  <meta property="og:url" content="https://humanai-lab.com/o-projekcie/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="../assets/logo-humanai-lab.png">
+  <style>
+    :root {
+      --bg: #06111f;
+      --bg-soft: #0b1728;
+      --panel: rgba(255, 255, 255, 0.04);
+      --line: rgba(255, 255, 255, 0.10);
+      --text: #f5f8ff;
+      --muted: #b8c9e6;
+      --accent: #6ee7f9;
+      --accent-blue: #2f80ff;
+      --glow: 0 26px 70px rgba(0, 0, 0, 0.36);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(110, 231, 249, 0.12), transparent 30%),
+        radial-gradient(circle at 85% 18%, rgba(47, 128, 255, 0.12), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, #081423 42%, #091120 100%);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .shell {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .shell::before,
+    .shell::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+      filter: blur(72px);
+      opacity: 0.4;
+    }
+
+    .shell::before {
+      top: -60px;
+      left: -40px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(110, 231, 249, 0.16);
+    }
+
+    .shell::after {
+      right: -80px;
+      top: 320px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: rgba(47, 128, 255, 0.14);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0 10px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .brand img {
+      width: auto;
+      height: clamp(54px, 12vw, 88px);
+      max-width: min(420px, 74vw);
+    }
+
+    .topbar-note {
+      display: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: right;
+    }
+
+    .hero {
+      display: grid;
+      gap: 24px;
+      padding: 18px 0 24px;
+    }
+
+    .hero-panel {
+      padding: 22px;
+      border-radius: 28px;
+      border: 1px solid rgba(110, 231, 249, 0.14);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
+        rgba(9, 19, 33, 0.76);
+      box-shadow: var(--glow);
+    }
+
+    .mini-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      color: var(--accent);
+      font-size: 0.8rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .mini-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+      box-shadow: 0 0 0 6px rgba(110, 231, 249, 0.08);
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      font-size: clamp(2.4rem, 9vw, 4.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+      max-width: 11ch;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 5vw, 2.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .lead,
+    .section-copy p,
+    .card p,
+    .faq-item p,
+    .footer {
+      color: var(--muted);
+    }
+
+    .lead {
+      margin-top: 18px;
+      max-width: 62ch;
+      font-size: clamp(1rem, 2.9vw, 1.15rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn:focus-visible,
+    .brand:focus-visible,
+    details summary:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .btn.primary {
+      color: #05111d;
+      background: linear-gradient(135deg, #d8fbff 0%, var(--accent) 50%, #67c3ff 100%);
+      box-shadow: 0 18px 44px rgba(47, 128, 255, 0.24);
+    }
+
+    .btn.secondary {
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    main { padding-bottom: 56px; }
+
+    section {
+      padding: 34px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .grid,
+    .cards-grid,
+    .faq-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid,
+    .cards-grid,
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-copy {
+      display: grid;
+      gap: 14px;
+    }
+
+    .card,
+    .faq-item {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+      backdrop-filter: blur(14px);
+    }
+
+    .card {
+      padding: 18px;
+      min-height: 100%;
+    }
+
+    .faq-item {
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 18px 18px 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item p { padding: 0 18px 18px; }
+
+    .footer {
+      padding: 18px 0 34px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.95rem;
+    }
+
+    .footer p + p { margin-top: 8px; }
+
+    @media (min-width: 620px) {
+      .cards-grid,
+      .faq-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 768px) {
+      .wrap { width: min(var(--max), calc(100% - 48px)); }
+      section { padding: 56px 0; }
+      .grid { grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr); }
+    }
+
+    @media (min-width: 980px) {
+      .topbar-note { display: block; }
+      .hero { grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr); }
+      .cards-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 480px) {
+      .brand img {
+        height: clamp(46px, 14vw, 72px);
+        max-width: min(320px, 74vw);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header id="top">
+      <div class="wrap">
+        <div class="topbar" aria-label="Brand header">
+          <a class="brand" href="../" aria-label="Human AI Lab">
+            <img src="../assets/logo-humanai-lab.png" alt="Human AI Lab">
+          </a>
+          <div class="topbar-note">Anonimowe badanie psychologiczne online</div>
+        </div>
+
+        <div class="hero">
+          <div>
+            <div class="mini-label"><span class="mini-dot"></span>O projekcie</div>
+            <h1>Human AI Lab i kontekst badania</h1>
+            <p class="lead">Ta strona zbiera pełniejsze informacje o projekcie, anonimowości udziału, wykorzystaniu odpowiedzi oraz sposobie działania formularza badawczego.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="../#formularz">Przejdź do formularza</a>
+              <a class="btn secondary" href="../">Wróć do strony głównej</a>
+            </div>
+          </div>
+
+          <div class="hero-panel">
+            <div class="mini-label"><span class="mini-dot"></span>Human AI Lab</div>
+            <h3>Projekt naukowo-badawczy</h3>
+            <p>Human AI Lab to autorski projekt naukowo-badawczy realizowany w ramach pracy magisterskiej z psychologii. Dotyczy sposobów korzystania z chatbotów AI przez osoby dorosłe oraz analizy wybranych wzorców korzystania i funkcjonowania psychologicznego.</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="wrap grid">
+          <div class="section-copy">
+            <div class="mini-label"><span class="mini-dot"></span>Czego dotyczy badanie?</div>
+            <h2>Chatboty AI w codziennym funkcjonowaniu</h2>
+            <p>Badanie dotyczy tego, jak osoby dorosłe korzystają z chatbotów AI w pracy, nauce, organizowaniu myśli, szukaniu informacji i innych codziennych sytuacjach.</p>
+            <p>Interesują nas wzorce korzystania w grupie, a nie ocena pojedynczych osób.</p>
+          </div>
+          <div class="cards-grid">
+            <article class="card">
+              <div class="mini-label"><span class="mini-dot"></span>Dlaczego to ważne?</div>
+              <h3>Nowy obszar psychologii człowieka i AI</h3>
+              <p>Psychologia dopiero zaczyna opisywać, jak nowe narzędzia konwersacyjnej sztucznej inteligencji wpisują się w codzienne życie użytkowników.</p>
+            </article>
+            <article class="card">
+              <div class="mini-label"><span class="mini-dot"></span>Wiedza oparta na danych</div>
+              <h3>Liczą się realne doświadczenia</h3>
+              <p>Odpowiedzi uczestników pomagają budować rzetelniejszy obraz korzystania z chatbotów AI, zamiast opierać się wyłącznie na domysłach.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap grid">
+          <div class="section-copy">
+            <div class="mini-label"><span class="mini-dot"></span>Anonimowość i dobrowolność</div>
+            <h2>Udział jest dobrowolny i anonimowy</h2>
+            <p>Formularz badawczy nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail uczestnika.</p>
+            <p>Udział można przerwać w dowolnym momencie. Odpowiedzi będą analizowane wyłącznie zbiorczo.</p>
+          </div>
+          <div class="cards-grid">
+            <article class="card">
+              <div class="mini-label"><span class="mini-dot"></span>Bez wyniku indywidualnego</div>
+              <h3>To nie jest ocena osoby</h3>
+              <p>Badanie nie zwraca wyniku indywidualnego i nie służy do oceny pojedynczych uczestników.</p>
+            </article>
+            <article class="card">
+              <div class="mini-label"><span class="mini-dot"></span>Analiza naukowa</div>
+              <h3>Wykorzystanie odpowiedzi</h3>
+              <p>Odpowiedzi zostaną wykorzystane do analizy naukowej w ramach pracy magisterskiej z psychologii.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap grid">
+          <div class="section-copy">
+            <div class="mini-label"><span class="mini-dot"></span>Google Forms</div>
+            <h2>Dlaczego formularz jest osadzony?</h2>
+            <p>Korzystamy z Google Forms, ponieważ umożliwia bezpieczne zebranie odpowiedzi, zapis danych w arkuszu i ograniczenie zakresu zbieranych informacji.</p>
+            <p>Komunikat Google o możliwości zapisania postępów nie oznacza, że formularz badawczy zbiera adres e-mail uczestnika.</p>
+          </div>
+          <div class="cards-grid">
+            <article class="card">
+              <div class="mini-label"><span class="mini-dot"></span>GitHub Pages</div>
+              <h3>Warstwa informacyjna projektu</h3>
+              <p>Strona Human AI Lab działa jako publiczny landing projektu i prowadzi do tego samego formularza badawczego.</p>
+            </article>
+            <article class="card">
+              <div class="mini-label"><span class="mini-dot"></span>Bezpieczeństwo</div>
+              <h3>Minimalny zakres danych</h3>
+              <p>Formularz nie zbiera danych kontaktowych potrzebnych do bezpośredniej identyfikacji uczestnika.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap">
+          <div class="mini-label"><span class="mini-dot"></span>FAQ</div>
+          <h2>Rozszerzone pytania i odpowiedzi</h2>
+          <div class="faq-grid">
+            <details class="faq-item">
+              <summary>Czy badanie jest anonimowe?</summary>
+              <p>Tak. Formularz nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail. Odpowiedzi są analizowane wyłącznie zbiorczo.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Ile trwa udział?</summary>
+              <p>Wypełnienie ankiety zajmuje zwykle około 10-15 minut.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Czy muszę mieć konto Google?</summary>
+              <p>Nie musisz logować się specjalnie do udziału w badaniu. Komunikaty Google nie oznaczają, że formularz badawczy zbiera adres e-mail.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Czy otrzymam wynik indywidualny?</summary>
+              <p>Nie. Badanie służy analizie zbiorczych wzorców odpowiedzi.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Czy to jest diagnoza albo konsultacja?</summary>
+              <p>Nie. Badanie nie jest diagnozą psychologiczną, konsultacją ani formą terapii.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Do czego zostaną wykorzystane odpowiedzi?</summary>
+              <p>Odpowiedzi zostaną wykorzystane do analizy naukowej w ramach pracy magisterskiej z psychologii.</p>
+            </details>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="../#formularz">Przejdź do formularza</a>
+            <a class="btn secondary" href="../badanie/">Otwórz alternatywną stronę formularza</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p>Human AI Lab - anonimowe badanie naukowe dotyczące korzystania z chatbotów AI.</p>
+        <p>Kontakt: <a href="mailto:humanai.lab.edu@gmail.com">humanai.lab.edu@gmail.com</a></p>
+        <p><a href="../">Strona główna</a> · <a href="../polityka-prywatnosci/">Polityka prywatności</a></p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
