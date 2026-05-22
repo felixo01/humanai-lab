@@ -255,10 +255,9 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, rgba(6, 17, 31, 0.18), rgba(6, 17, 31, 0.02) 18%, rgba(6, 17, 31, 0.28)),
-        radial-gradient(circle at left center, rgba(6, 17, 31, 0.76), transparent 26%),
-        radial-gradient(circle at right center, rgba(6, 17, 31, 0.72), transparent 22%),
-        linear-gradient(90deg, rgba(6, 17, 31, 0.18), transparent 12%, transparent 88%, rgba(6, 17, 31, 0.22));
+        linear-gradient(180deg, rgba(6, 17, 31, 0.10), rgba(6, 17, 31, 0.22)),
+        radial-gradient(circle at 14% 50%, rgba(6, 17, 31, 0.70), transparent 28%),
+        radial-gradient(circle at 88% 50%, rgba(6, 17, 31, 0.54), transparent 24%);
       pointer-events: none;
     }
 
@@ -350,6 +349,25 @@
     .section-copy {
       display: grid;
       gap: 14px;
+    }
+
+    .details-card {
+      padding: 18px 20px;
+    }
+
+    .details-card summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .details-card summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .details-card p {
+      margin-top: 12px;
     }
 
     .panel,
@@ -677,28 +695,32 @@
           <div class="section-copy">
             <div class="mini-label"><span class="mini-dot"></span>Dlaczego to badanie jest ważne?</div>
             <h2>Psychologia dopiero zaczyna opisywać relację człowieka z AI</h2>
-            <p>Chatboty AI stały się jednym z najszybciej rozwijających się narzędzi cyfrowych. Coraz częściej służą nie tylko do pracy i nauki, ale także do porządkowania myśli, szukania wsparcia informacyjnego i radzenia sobie z codziennym napięciem. Psychologia dopiero zaczyna opisywać, jak wygląda ta nowa forma kontaktu człowieka z technologią.</p>
-            <p>Biorąc udział w badaniu, pomagasz lepiej zrozumieć, w jaki sposób osoby dorosłe korzystają z chatbotów AI i jakie wzorce pojawiają się w tej nowej przestrzeni. Nie oceniamy pojedynczych osób - interesuje nas obraz zbiorczy.</p>
+            <p>Chatboty AI są coraz częściej używane nie tylko do pracy i nauki, ale też do porządkowania myśli i radzenia sobie z codziennym napięciem. Psychologia dopiero zaczyna opisywać ten obszar.</p>
+            <p>Biorąc udział w badaniu, pomagasz budować wiedzę opartą na danych, a nie domysłach.</p>
             <div class="hero-actions">
               <a class="btn secondary" href="badanie/">Współtwórz badanie</a>
             </div>
+            <details class="panel details-card">
+              <summary>Dlaczego psychologia bada chatboty AI?</summary>
+              <p>Chatboty AI stały się nowym elementem codziennego funkcjonowania. Badanie pomaga lepiej zrozumieć, jak osoby dorosłe korzystają z takich narzędzi i jakie wzorce pojawiają się w tej relacji człowieka z technologią.</p>
+            </details>
           </div>
 
           <div class="cards-grid cards-grid-three">
             <article class="card">
               <div class="eyebrow"><span class="mini-dot"></span>Nowe zjawisko</div>
-              <h3>Codzienność wyprzedza opis naukowy</h3>
-              <p>Chatboty AI są obecne w codziennym życiu, ale ich psychologiczne znaczenie wciąż wymaga badań.</p>
+              <h3>Nowe zjawisko</h3>
+              <p>Relacja człowieka z chatbotami AI wymaga rzetelnych badań.</p>
             </article>
             <article class="card">
-              <div class="eyebrow"><span class="mini-dot"></span>Wiedza oparta na danych</div>
-              <h3>Każda odpowiedź ma znaczenie</h3>
-              <p>Każda odpowiedź pomaga budować rzetelniejszy obraz tego, jak ludzie korzystają z narzędzi AI.</p>
+              <div class="eyebrow"><span class="mini-dot"></span>Realne doświadczenia</div>
+              <h3>Doświadczenia użytkowników</h3>
+              <p>Najważniejsze są odpowiedzi osób, które faktycznie korzystają z takich narzędzi.</p>
             </article>
             <article class="card">
-              <div class="eyebrow"><span class="mini-dot"></span>Perspektywa człowieka</div>
-              <h3>Doświadczenie ważniejsze niż założenia</h3>
-              <p>Najważniejsze są realne doświadczenia użytkowników - nie założenia technologiczne.</p>
+              <div class="eyebrow"><span class="mini-dot"></span>Obraz zbiorczy</div>
+              <h3>Wzorce zamiast oceny osób</h3>
+              <p>Nie oceniamy pojedynczych osób. Interesują nas wzorce korzystania.</p>
             </article>
           </div>
         </div>
@@ -708,9 +730,19 @@
         <div class="wrap section-grid">
           <div class="section-copy">
             <div class="mini-label"><span class="mini-dot"></span>O badaniu</div>
-            <h2>Badanie ma charakter anonimowy i naukowy</h2>
-            <p>Projekt ma charakter anonimowy i naukowy. Zbieramy odpowiedzi od osób dorosłych, aby opisać, w jaki sposób chatboty AI są wykorzystywane w praktyce: do pracy, nauki, codziennych zadań i porządkowania myśli.</p>
-            <p>Badanie nie służy ocenie pojedynczych osób. Interesuje nas obraz zbiorczy i wzorce korzystania z nowych narzędzi cyfrowych.</p>
+            <h2>Human AI Lab to projekt naukowo-badawczy o korzystaniu z chatbotów AI</h2>
+            <p>Human AI Lab to projekt naukowo-badawczy dotyczący sposobów korzystania z chatbotów AI przez osoby dorosłe. Badanie jest anonimowe, dobrowolne i analizowane wyłącznie zbiorczo.</p>
+            <div class="hero-actions">
+              <a class="btn secondary" href="badanie/">Zobacz formularz</a>
+            </div>
+            <details class="panel details-card">
+              <summary>Czym jest Human AI Lab?</summary>
+              <p>Human AI Lab koncentruje się na relacji człowieka z narzędziami konwersacyjnej sztucznej inteligencji. Celem projektu jest zebranie danych empirycznych, które pomogą opisać nowe wzorce korzystania z chatbotów AI.</p>
+            </details>
+            <details class="panel details-card">
+              <summary>Do czego zostaną wykorzystane odpowiedzi?</summary>
+              <p>Odpowiedzi zostaną wykorzystane do analizy naukowej w ramach pracy magisterskiej z psychologii. Dane będą analizowane wyłącznie zbiorczo.</p>
+            </details>
           </div>
 
           <div class="cards-grid accent-grid">
@@ -720,43 +752,21 @@
               <p>Formularz nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail.</p>
             </article>
             <article class="card">
-              <div class="eyebrow"><span class="mini-dot"></span>Online</div>
-              <h3>Udział przez internet</h3>
-              <p>Badanie jest dostępne w formularzu online i można je wypełnić na telefonie albo komputerze.</p>
+              <div class="eyebrow"><span class="mini-dot"></span>Dobrowolnie</div>
+              <h3>Decyzja należy do uczestnika</h3>
+              <p>Udział jest dobrowolny i można przerwać go na dowolnym etapie.</p>
             </article>
             <article class="card">
-              <div class="eyebrow"><span class="mini-dot"></span>10-15 minut</div>
-              <h3>Przewidywalny czas</h3>
-              <p>Wypełnienie ankiety zajmuje zwykle około 10-15 minut.</p>
+              <div class="eyebrow"><span class="mini-dot"></span>Bez wyniku indywidualnego</div>
+              <h3>Badanie nie ocenia jednostki</h3>
+              <p>Formularz nie zwraca wyniku indywidualnego i nie służy diagnozie.</p>
             </article>
             <article class="card">
               <div class="eyebrow"><span class="mini-dot"></span>Analiza zbiorcza</div>
-              <h3>Wyniki na poziomie grupy</h3>
-              <p>Odpowiedzi będą analizowane wyłącznie zbiorczo i wykorzystane do celów naukowych.</p>
+              <h3>Dane na poziomie grupy</h3>
+              <p>Odpowiedzi będą analizowane wyłącznie jako dane zbiorcze.</p>
             </article>
           </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="wrap two-col">
-          <div class="section-copy">
-            <div class="mini-label"><span class="mini-dot"></span>Czym jest Human AI Lab?</div>
-            <h2>Projekt badawczy o relacji człowieka i chatbotów AI</h2>
-            <p>Human AI Lab to autorski projekt naukowo-badawczy dotyczący relacji człowieka z narzędziami konwersacyjnej sztucznej inteligencji.</p>
-            <p>Celem projektu jest zebranie danych empirycznych, które pozwolą lepiej opisać nowe wzorce interakcji człowieka z chatbotami AI. Wyniki badania będą analizowane zbiorczo i wykorzystane do celów naukowych.</p>
-          </div>
-
-          <aside class="panel scope-panel" aria-label="Zakres projektu">
-            <div class="mini-label"><span class="mini-dot"></span>Zakres projektu</div>
-            <h3>Obszary, które interesują nas w badaniu</h3>
-            <ul class="panel-list">
-              <li><span class="list-dot"></span><span>psychologia i nowe technologie</span></li>
-              <li><span class="list-dot"></span><span>chatboty AI w codziennym funkcjonowaniu</span></li>
-              <li><span class="list-dot"></span><span>lęk, regulacja emocji i wzorce korzystania</span></li>
-              <li><span class="list-dot"></span><span>relacja człowieka z narzędziami konwersacyjnej AI</span></li>
-            </ul>
-          </aside>
         </div>
       </section>
 
@@ -793,35 +803,19 @@
           <div class="steps-grid">
             <article class="step">
               <div class="step-index">1</div>
-              <h3>Zapoznaj się z informacją</h3>
-              <p>Na początku formularza znajdziesz krótką informację o badaniu i zgodę na udział.</p>
+              <h3>Czytasz informację</h3>
+              <p>Na początku formularza znajdziesz krótką informację o badaniu.</p>
             </article>
             <article class="step">
               <div class="step-index">2</div>
-              <h3>Wypełnij ankietę</h3>
-              <p>Odpowiesz na pytania dotyczące korzystania z chatbotów AI oraz wybranych aspektów samopoczucia.</p>
+              <h3>Wypełniasz ankietę</h3>
+              <p>Odpowiesz na pytania dotyczące korzystania z chatbotów AI i samopoczucia.</p>
             </article>
             <article class="step">
               <div class="step-index">3</div>
               <h3>Prześlij odpowiedzi</h3>
-              <p>Po przesłaniu dane zostaną zapisane i analizowane wyłącznie zbiorczo.</p>
+              <p>Dane zostaną zapisane i analizowane wyłącznie zbiorczo.</p>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div class="wrap two-col">
-          <div class="section-copy">
-            <div class="mini-label"><span class="mini-dot"></span>Informacja o formularzu</div>
-            <h2>Spokojny i przewidywalny sposób udziału</h2>
-            <p>Formularz badania jest obsługiwany przez Google Forms. Korzystamy z tego rozwiązania, ponieważ umożliwia bezpieczne zebranie odpowiedzi, zapis danych w arkuszu oraz ograniczenie zakresu zbieranych informacji.</p>
-            <p>Formularz badawczy nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail uczestnika. Odpowiedzi będą analizowane wyłącznie zbiorczo.</p>
-          </div>
-          <div class="panel">
-            <div class="mini-label"><span class="mini-dot"></span>Ważne doprecyzowanie</div>
-            <h3>Komunikat Google o zapisie postępów</h3>
-            <p>Komunikat Google o możliwości zapisania postępów nie oznacza, że formularz zbiera adres e-mail. Formularz badawczy nie zbiera adresów e-mail ani danych identyfikujących uczestnika.</p>
           </div>
         </div>
       </section>
@@ -832,32 +826,24 @@
           <h2>Najczęstsze pytania</h2>
           <div class="faq-grid">
             <details class="faq-item">
-            <summary>Czy badanie jest anonimowe?</summary>
-              <p>Tak. Formularz badawczy nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail. Odpowiedzi będą analizowane wyłącznie zbiorczo.</p>
+              <summary>Czy badanie jest anonimowe?</summary>
+              <p>Tak. Formularz nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail.</p>
             </details>
             <details class="faq-item">
               <summary>Ile trwa udział?</summary>
-              <p>Wypełnienie ankiety zajmuje zwykle około 10-15 minut.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Czy muszę mieć konto Google?</summary>
-              <p>Nie musisz logować się specjalnie do udziału w badaniu. Google może wyświetlać komunikat o możliwości zapisania postępów, ale formularz badawczy nie zbiera adresów e-mail.</p>
+              <p>Zwykle około 10-15 minut.</p>
             </details>
             <details class="faq-item">
               <summary>Czy otrzymam wynik indywidualny?</summary>
-              <p>Nie. Badanie nie zwraca wyniku indywidualnego. Jego celem jest analiza zbiorczych wzorców odpowiedzi.</p>
+              <p>Nie. Badanie służy analizie zbiorczych wzorców odpowiedzi.</p>
             </details>
             <details class="faq-item">
-              <summary>Czy badanie zastępuje diagnozę albo konsultację psychologiczną?</summary>
+              <summary>Czy to jest diagnoza albo konsultacja?</summary>
               <p>Nie. Badanie nie jest diagnozą psychologiczną, konsultacją ani formą terapii.</p>
             </details>
             <details class="faq-item">
               <summary>Do czego zostaną wykorzystane odpowiedzi?</summary>
               <p>Odpowiedzi zostaną wykorzystane do analizy naukowej w ramach pracy magisterskiej z psychologii.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Dlaczego badanie dotyczy chatbotów AI?</summary>
-              <p>Chatboty AI są nowym i szybko rozwijającym się elementem codzienności. Psychologia dopiero zaczyna opisywać, jak ludzie korzystają z takich narzędzi i jakie znaczenie mogą mieć w codziennym funkcjonowaniu.</p>
             </details>
           </div>
         </div>

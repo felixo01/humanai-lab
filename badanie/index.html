@@ -243,6 +243,36 @@
       box-shadow: 0 0 0 6px rgba(110, 231, 249, 0.08);
     }
 
+    .details-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .details-panel {
+      padding: 16px 18px;
+    }
+
+    .details-panel summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .details-panel summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .details-panel p {
+      margin-top: 12px;
+    }
+
+    .summary-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .info-grid {
       grid-template-columns: 1fr;
     }
@@ -496,11 +526,19 @@
       <section>
         <div class="wrap grid">
           <div class="panel">
-            <div class="eyebrow"><span class="dot"></span>Informacja o formularzu</div>
-            <h2>Formularz jest osadzony bezpośrednio na stronie</h2>
-            <p>Formularz badania jest obsługiwany przez Google Forms. Korzystamy z tego rozwiązania, ponieważ umożliwia bezpieczne zebranie odpowiedzi, zapis danych w arkuszu oraz ograniczenie zakresu zbieranych informacji.</p>
-            <p style="margin-top:14px;">Formularz badawczy nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail uczestnika. Odpowiedzi będą analizowane wyłącznie zbiorczo.</p>
-            <p style="margin-top:14px;">Komunikat Google o możliwości zapisania postępów nie oznacza, że formularz zbiera adres e-mail.</p>
+            <div class="eyebrow"><span class="dot"></span>Najważniejsze informacje</div>
+            <h2>Anonimowo, online i z czytelnym przebiegiem</h2>
+            <p>Formularz badawczy nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail uczestnika. Odpowiedzi będą analizowane wyłącznie zbiorczo.</p>
+            <div class="details-stack" style="margin-top:18px;">
+              <details class="panel details-panel">
+                <summary><span class="summary-row"><span class="dot"></span><span>Dlaczego formularz jest obsługiwany przez Google Forms?</span></span></summary>
+                <p>Korzystamy z Google Forms, ponieważ umożliwia bezpieczne zebranie odpowiedzi i zapis danych w arkuszu. Formularz badawczy nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail.</p>
+              </details>
+              <details class="panel details-panel">
+                <summary><span class="summary-row"><span class="dot"></span><span>Czy komunikat Google o logowaniu oznacza zbieranie e-maila?</span></span></summary>
+                <p>Nie. Komunikat Google o możliwości zapisania postępów nie oznacza, że formularz badawczy zbiera adres e-mail.</p>
+              </details>
+            </div>
           </div>
 
           <div class="info-grid">
@@ -522,7 +560,7 @@
             <article class="info-card">
               <div class="eyebrow"><span class="dot"></span>Analiza zbiorcza</div>
               <h3>Bez wyniku indywidualnego</h3>
-              <p>Badanie nie zwraca wyniku indywidualnego i nie stanowi diagnozy psychologicznej.</p>
+              <p>Badanie nie jest diagnozą psychologiczną, konsultacją ani formą terapii.</p>
             </article>
           </div>
         </div>
