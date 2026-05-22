@@ -143,16 +143,25 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 15px;
-      margin-bottom: 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(110, 231, 249, 0.20);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--muted);
-      font-size: 0.82rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+      padding: 0;
+      margin-bottom: 16px;
+      border: 0;
+      background: transparent;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      box-shadow: none;
+    }
+
+    .badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+      box-shadow: 0 0 0 6px rgba(110, 231, 249, 0.08);
     }
 
     h1,
