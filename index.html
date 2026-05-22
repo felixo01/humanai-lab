@@ -28,7 +28,7 @@
       color: #cbd5e1;
       max-width: 760px;
     }
-    a {
+    .button {
       display: inline-flex;
       margin-top: 18px;
       padding: 14px 22px;
@@ -37,6 +37,12 @@
       color: #0f172a;
       text-decoration: none;
       font-weight: 700;
+    }
+    .plain-link {
+      display: block;
+      margin-top: 18px;
+      color: #93c5fd;
+      word-break: break-word;
     }
     section {
       border-top: 1px solid rgba(255,255,255,.12);
@@ -47,13 +53,22 @@
       font-size: 32px;
       letter-spacing: -.04em;
     }
+    .note {
+      font-size: 15px;
+      color: #94a3b8;
+      margin-top: 12px;
+    }
   </style>
 </head>
 <body>
   <main>
     <h1>Human AI Lab</h1>
     <p>Strona projektu badawczego dotyczącego korzystania z chatbotów AI.</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdsSnNeG4U7eDvYL-f8VuwCBJgIiv-n9aK3CWNTyywvKQPLvg/viewform" target="_blank" rel="noopener">Weź udział w badaniu</a>
+
+    <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdsSnNeG4U7eDvYL-f8VuwCBJgIiv-n9aK3CWNTyywvKQPLvg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">Weź udział w badaniu</a>
+
+    <p class="note">Jeśli przycisk nie działa, użyj linku poniżej:</p>
+    <a class="plain-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdsSnNeG4U7eDvYL-f8VuwCBJgIiv-n9aK3CWNTyywvKQPLvg/viewform?usp=sf_link" target="_blank" rel="noopener noreferrer">https://docs.google.com/forms/d/e/1FAIpQLSdsSnNeG4U7eDvYL-f8VuwCBJgIiv-n9aK3CWNTyywvKQPLvg/viewform?usp=sf_link</a>
 
     <section>
       <h2>O projekcie</h2>
