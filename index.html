@@ -102,34 +102,6 @@
       background: rgba(47, 128, 255, 0.14);
     }
 
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 18px 0 10px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-      min-width: 0;
-    }
-
-    .brand img {
-      width: auto;
-      height: clamp(54px, 12vw, 88px);
-      max-width: min(420px, 74vw);
-    }
-
-    .topbar-note {
-      display: none;
-      color: var(--muted);
-      font-size: 0.95rem;
-      text-align: right;
-    }
-
     header {
       padding-bottom: 18px;
     }
@@ -137,7 +109,7 @@
     .hero {
       display: grid;
       gap: 24px;
-      padding: 18px 0 24px;
+      padding: 32px 0 24px;
     }
 
     .hero-copy {
@@ -579,6 +551,14 @@
       font-size: 0.95rem;
     }
 
+    .footer-logo {
+      display: block;
+      width: min(160px, 48vw);
+      height: auto;
+      margin-bottom: 14px;
+      opacity: 0.74;
+    }
+
     .footer p + p {
       margin-top: 8px;
     }
@@ -618,18 +598,10 @@
     }
 
     @media (min-width: 980px) {
-      .topbar {
-        padding-top: 20px;
-      }
-
-      .topbar-note {
-        display: block;
-      }
-
       .hero {
         grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
         gap: 34px;
-        padding: 28px 0 30px;
+        padding: 46px 0 30px;
       }
 
       .hero-copy {
@@ -648,9 +620,8 @@
     }
 
     @media (max-width: 480px) {
-      .brand img {
-        height: clamp(46px, 14vw, 72px);
-        max-width: min(320px, 74vw);
+      .footer-logo {
+        width: min(132px, 52vw);
       }
 
       .form-frame {
@@ -664,13 +635,6 @@
   <div class="site-shell">
     <header id="top">
       <div class="wrap">
-        <div class="topbar" aria-label="Brand header">
-          <a class="brand" href="#top" aria-label="Human AI Lab">
-            <img src="assets/logo-humanai-lab.png" alt="Human AI Lab">
-          </a>
-          <div class="topbar-note">Anonimowe badanie psychologiczne online</div>
-        </div>
-
         <div class="hero">
           <div class="hero-copy">
             <h1>Badanie o korzystaniu z chatbotów AI</h1>
@@ -845,6 +809,7 @@
 
     <footer class="footer">
       <div class="wrap">
+        <img class="footer-logo" src="assets/logo-humanai-lab.png" alt="Human AI Lab">
         <p>Human AI Lab - anonimowe badanie naukowe dotyczące korzystania z chatbotów AI.</p>
         <p>Kontakt: <a href="mailto:humanai.lab.edu@gmail.com">humanai.lab.edu@gmail.com</a></p>
         <p><a href="o-projekcie/">O projekcie</a> · <a href="polityka-prywatnosci/">Polityka prywatności</a></p>

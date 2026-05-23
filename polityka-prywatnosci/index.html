@@ -45,38 +45,10 @@
 
     header { padding: 18px 0 14px; }
 
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      text-decoration: none;
-    }
-
-    .brand img {
-      display: block;
-      width: auto;
-      height: clamp(58px, 12vw, 96px);
-      max-width: min(420px, 78vw);
-    }
-
-    .topbar-note {
-      display: none;
-      color: var(--muted);
-      font-size: 0.92rem;
-      text-align: right;
-    }
-
     .hero {
       display: grid;
       gap: 16px;
-      padding: 16px 0 10px;
+      padding: 24px 0 10px;
     }
 
     .badge {
@@ -131,22 +103,31 @@
       font-size: 0.92rem;
     }
 
+    .footer-logo {
+      display: block;
+      width: min(160px, 48vw);
+      height: auto;
+      margin-bottom: 14px;
+      opacity: 0.74;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer p + p {
+      margin-top: 8px;
+    }
+
     @media (min-width: 900px) {
       header { padding: 24px 0 18px; }
-      .topbar { margin-bottom: 24px; }
-      .topbar-note { display: block; }
-      .brand img {
-        height: clamp(72px, 7vw, 112px);
-        max-width: 460px;
-      }
-      .hero { gap: 18px; padding-top: 4px; }
+      .hero { gap: 18px; padding-top: 14px; }
       .panel { padding: 28px; }
     }
 
     @media (max-width: 480px) {
-      .brand img {
-        height: clamp(46px, 14vw, 70px);
-        max-width: min(320px, 74vw);
+      .footer-logo {
+        width: min(132px, 52vw);
       }
     }
   </style>
@@ -154,13 +135,6 @@
 <body>
   <header id="top">
     <div class="wrap">
-      <div class="topbar" aria-label="Brand header">
-        <a class="brand" href="../" aria-label="Human AI Lab">
-          <img src="../assets/logo-humanai-lab.png" alt="Human AI Lab">
-        </a>
-        <div class="topbar-note">Anonimowe badanie psychologiczne</div>
-      </div>
-
       <div class="hero">
         <div class="badge">Polityka prywatności</div>
         <h1>Informacje o prywatności w badaniu Human AI Lab</h1>
@@ -189,7 +163,10 @@
 
   <footer>
     <div class="wrap">
-      Human AI Lab - polityka prywatności badania.
+      <img class="footer-logo" src="../assets/logo-humanai-lab.png" alt="Human AI Lab">
+      <p>Human AI Lab - polityka prywatności badania.</p>
+      <p>Kontakt: <a href="mailto:humanai.lab.edu@gmail.com">humanai.lab.edu@gmail.com</a></p>
+      <p><a href="../">Strona główna</a> · <a href="../o-projekcie/">O projekcie</a> · <a href="../polityka-prywatnosci/">Polityka prywatności</a></p>
     </div>
   </footer>
 </body>
