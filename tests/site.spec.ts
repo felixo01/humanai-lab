@@ -86,6 +86,19 @@ test.describe('Human AI Lab static site', () => {
     }
   });
 
+  test('SEO titles include key long-tail phrases on target pages', async ({ page }) => {
+    await page.goto('/ankieta-chatgpt/');
+    await expect(page).toHaveTitle(/Ankieta ChatGPT/i);
+
+    await page.goto('/badanie-chatboty-ai-lek/');
+    await expect(page).toHaveTitle(/Chatboty AI a lęk/i);
+  });
+
+  test('home page contains visible anchor for ankieta ChatGPT', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.getByRole('link', { name: /ankieta ChatGPT/i }).first()).toBeVisible();
+  });
+
   test('public pages do not render logo in header', async ({ page }) => {
     for (const item of pages) {
       await page.goto(item.path);
