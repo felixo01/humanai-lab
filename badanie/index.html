@@ -3,496 +3,78 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Human AI Lab | Formularz badania</title>
-  <meta name="description" content="Anonimowy formularz badania Human AI Lab dotyczącego korzystania z chatbotów AI przez osoby dorosłe.">
-  <meta property="og:title" content="Human AI Lab - formularz badania">
-  <meta property="og:description" content="Wypełnij anonimowy formularz badania o korzystaniu z chatbotów AI przez osoby dorosłe.">
-  <meta property="og:image" content="https://humanai-lab.com/assets/social-preview.png">
+  <title>Anonimowa ankieta: ChatGPT, chatboty AI i lęk | Human AI Lab</title>
+  <meta name="description" content="Wypełnij anonimową ankietę psychologiczną o korzystaniu z chatbotów AI i poziomie lęku. Badanie dla osób 18+, czas udziału około 10-15 minut.">
+  <link rel="canonical" href="https://humanai-lab.com/badanie/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Anonimowa ankieta: ChatGPT, chatboty AI i lęk">
+  <meta property="og:description" content="Wypełnij anonimową ankietę psychologiczną o korzystaniu z chatbotów AI i poziomie lęku. Badanie 18+, około 10-15 minut.">
   <meta property="og:url" content="https://humanai-lab.com/badanie/">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://humanai-lab.com/assets/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anonimowa ankieta: ChatGPT, chatboty AI i lęk">
+  <meta name="twitter:description" content="Badanie psychologiczne dla osób 18+, 10-15 minut, odpowiedzi analizowane zbiorczo.">
+  <meta name="twitter:image" content="https://humanai-lab.com/assets/social-preview.png">
   <link rel="icon" href="../assets/logo-humanai-lab.png">
-  <style>
-    :root {
-      --bg: #06111f;
-      --panel: rgba(255, 255, 255, 0.04);
-      --line: rgba(255, 255, 255, 0.10);
-      --text: #f5f8ff;
-      --muted: #b8c9e6;
-      --accent: #6ee7f9;
-      --accent-blue: #2f80ff;
-      --light-bg: #f3f6fb;
-      --light-text: #111827;
-      --light-muted: #526174;
-      --light-line: rgba(15, 23, 42, 0.08);
-      --link: #0b63ce;
-      --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
-      --max: 1160px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(110, 231, 249, 0.12), transparent 30%),
-        radial-gradient(circle at 84% 16%, rgba(47, 128, 255, 0.12), transparent 24%),
-        linear-gradient(180deg, var(--bg) 0%, #081322 44%, #091120 100%);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a { color: inherit; }
-
-    .wrap {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .shell {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .shell::before {
-      content: "";
-      position: absolute;
-      top: -70px;
-      right: -120px;
-      width: 340px;
-      height: 340px;
-      border-radius: 50%;
-      background: rgba(47, 128, 255, 0.12);
-      filter: blur(80px);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .hero {
-      display: grid;
-      gap: 18px;
-      padding: 32px 0 26px;
-    }
-
-    h1, h2, h3, p { margin: 0; }
-
-    h1 {
-      font-size: clamp(2.2rem, 8.6vw, 4rem);
-      line-height: 0.98;
-      letter-spacing: -0.05em;
-      max-width: 12ch;
-    }
-
-    h2 {
-      font-size: clamp(1.6rem, 5vw, 2.35rem);
-      line-height: 1.06;
-      letter-spacing: -0.05em;
-      margin-bottom: 14px;
-    }
-
-    h3 {
-      font-size: 1.04rem;
-      margin-bottom: 8px;
-    }
-
-    .lead,
-    .panel p,
-    .note,
-    .info-card p,
-    .footer {
-      color: var(--muted);
-    }
-
-    .lead {
-      max-width: 70ch;
-      font-size: clamp(1rem, 2.8vw, 1.14rem);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 13px 20px;
-      border-radius: 14px;
-      border: 1px solid transparent;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
-    }
-
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn:focus-visible,
-    .brand:focus-visible,
-    a:focus-visible,
-    details summary:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-    }
-
-    .btn.primary {
-      color: #05111d;
-      background: linear-gradient(135deg, #d8fbff 0%, var(--accent) 50%, #67c3ff 100%);
-      box-shadow: 0 18px 44px rgba(47, 128, 255, 0.24);
-    }
-
-    .btn.secondary {
-      color: var(--text);
-      border-color: var(--line);
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    main { padding-bottom: 56px; }
-
-    section {
-      padding: 26px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .grid,
-    .info-grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    .panel,
-    .form-shell,
-    .info-card {
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
-        rgba(12, 23, 40, 0.82);
-      box-shadow: var(--shadow);
-    }
-
-    .panel,
-    .info-card {
-      padding: 20px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      color: var(--accent);
-      font-size: 0.8rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-blue));
-      box-shadow: 0 0 0 6px rgba(110, 231, 249, 0.08);
-    }
-
-    .details-stack {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .details-panel {
-      padding: 16px 18px;
-    }
-
-    .details-panel summary {
-      cursor: pointer;
-      list-style: none;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .details-panel summary::-webkit-details-marker { display: none; }
-    .details-panel p { margin-top: 12px; }
-
-    .info-grid { grid-template-columns: 1fr; }
-
-    .survey-transition {
-      position: relative;
-      height: 148px;
-      margin-top: 6px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(110, 231, 249, 0.12), transparent 22%),
-        radial-gradient(circle at 78% 36%, rgba(47, 128, 255, 0.10), transparent 28%),
-        linear-gradient(180deg, rgba(6, 17, 31, 0) 0%, rgba(22, 37, 56, 0.34) 34%, rgba(205, 220, 236, 0.80) 78%, rgba(243, 246, 251, 0.98) 100%);
-      border-bottom-left-radius: 34px;
-      border-bottom-right-radius: 34px;
-    }
-
-    .survey-transition::before,
-    .survey-transition::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      filter: blur(30px);
-    }
-
-    .survey-transition::before {
-      left: 8%;
-      bottom: 26px;
-      width: 180px;
-      height: 60px;
-      border-radius: 999px;
-      background: rgba(110, 231, 249, 0.12);
-    }
-
-    .survey-transition::after {
-      right: 10%;
-      bottom: 18px;
-      width: 220px;
-      height: 76px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.26);
-    }
-
-    .survey-zone {
-      background:
-        radial-gradient(circle at top center, rgba(255, 255, 255, 0.99), rgba(243, 246, 251, 0.99)),
-        var(--light-bg);
-      color: var(--light-text);
-      border-top-left-radius: 38px;
-      border-top-right-radius: 38px;
-      margin-top: -24px;
-      box-shadow: 0 -12px 36px rgba(6, 17, 31, 0.08);
-    }
-
-    .survey-zone .wrap {
-      width: min(980px, calc(100% - 40px));
-    }
-
-    .survey-zone h2,
-    .survey-zone h3 { color: var(--light-text); }
-    .survey-zone .eyebrow { color: var(--link); }
-    .survey-zone .lead,
-    .survey-zone .note,
-    .survey-zone p,
-    .survey-zone .chip-light span { color: var(--light-muted); }
-    .survey-zone a { color: var(--link); }
-
-    .survey-zone-inner { padding: 42px 0 60px; }
-
-    .chip-row {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin: 20px 0 22px;
-    }
-
-    .chip-light {
-      padding: 12px 12px 11px;
-      border-radius: 16px;
-      border: 1px solid var(--light-line);
-      background: rgba(255, 255, 255, 0.94);
-      box-shadow: 0 8px 28px rgba(10, 20, 40, 0.08);
-      text-align: center;
-    }
-
-    .chip-light strong {
-      display: block;
-      margin-bottom: 3px;
-      color: var(--light-text);
-      font-size: 0.98rem;
-    }
-
-    .form-shell {
-      overflow: hidden;
-      background: #fff;
-      border-color: var(--light-line);
-      box-shadow: 0 20px 60px rgba(10, 20, 40, 0.12);
-    }
-
-    .form-shell-header,
-    .form-shell-footer {
-      padding: 18px 20px;
-      background: rgba(255, 255, 255, 0.98);
-    }
-
-    .form-shell-header { border-bottom: 1px solid rgba(15, 23, 42, 0.06); }
-
-    .form-shell-footer {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      border-top: 1px solid rgba(15, 23, 42, 0.06);
-    }
-
-    .form-frame {
-      display: block;
-      width: 100%;
-      height: 84vh;
-      min-height: 720px;
-      border: 0;
-      background: #fff;
-    }
-
-    .survey-zone .btn.secondary {
-      color: #0f172a;
-      border-color: rgba(15, 23, 42, 0.12);
-      background: #ffffff;
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
-    }
-
-    .footer {
-      padding: 18px 0 34px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.95rem;
-    }
-
-    .footer-logo {
-      display: block;
-      width: min(160px, 48vw);
-      height: auto;
-      margin-bottom: 14px;
-      opacity: 0.74;
-    }
-
-    .footer p + p { margin-top: 8px; }
-
-    @media (min-width: 720px) {
-      .wrap { width: min(var(--max), calc(100% - 48px)); }
-      section { padding: 40px 0; }
-      .grid { grid-template-columns: minmax(0, 1fr) minmax(280px, 0.88fr); align-items: start; }
-      .info-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .chip-row { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    }
-
-    @media (min-width: 960px) {
-      .hero { grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr); align-items: end; gap: 28px; padding: 46px 0 30px; }
-      .survey-transition { height: 172px; }
-    }
-
-    @media (max-width: 480px) {
-      .footer-logo {
-        width: min(132px, 52vw);
-      }
-
-      .form-frame {
-        height: 86vh;
-        min-height: 680px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-  <div class="shell">
-    <header id="top">
+  <div class="site-shell">
+    <header class="site-header">
       <div class="wrap">
-        <div class="hero">
-          <div>
-            <h1>Wypełnij badanie online</h1>
-            <p class="lead">Ta podstrona jest alternatywną ścieżką do tego samego formularza badawczego. Udział jest dobrowolny i anonimowy.</p>
-            <div class="hero-actions">
-              <a class="btn primary" href="#formularz">Przejdź do formularza</a>
-              <a class="btn secondary" href="../">Wróć do strony głównej</a>
+        <div class="topbar" aria-label="Nagłówek Human AI Lab">
+          <a class="brand" href="../" aria-label="Human AI Lab - strona główna">
+            <img src="../assets/logo-humanai-lab.png" alt="Human AI Lab">
+          </a>
+          <div class="topbar-note">Szybka ścieżka do formularza</div>
+        </div>
+
+        <nav class="breadcrumbs" aria-label="Okruszki">
+          <a href="../">Strona główna</a>
+          <span aria-hidden="true">/</span>
+          <span>Badanie</span>
+        </nav>
+
+        <section class="hero" aria-label="Szybkie wejście do ankiety">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Szybkie wypełnienie</div>
+            <h1>Wypełnij anonimową ankietę o chatbotach AI i lęku</h1>
+            <p class="lead">Ta podstrona prowadzi do formularza badania psychologicznego o korzystaniu z chatbotów AI, takich jak ChatGPT, Gemini, Claude i Copilot, oraz poziomie lęku u osób dorosłych. Udział jest dobrowolny i anonimowy.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Otwórz formularz w Google Forms</a>
+              <a class="btn btn-secondary" href="#formularz">Zobacz formularz osadzony</a>
             </div>
+            <p class="trust-note">Jeśli chcesz przejść od razu do ankiety, pierwszy przycisk jest najszybszą opcją.</p>
           </div>
 
           <div class="panel">
-            <div class="eyebrow"><span class="dot"></span>O Human AI Lab</div>
-            <h3>Autorski projekt badawczy</h3>
-            <p>Human AI Lab to autorski projekt badawczy realizowany w ramach pracy magisterskiej z psychologii. Badanie dotyczy sposobów korzystania z chatbotów AI przez osoby dorosłe. Interesuje nas obraz zbiorczy, nie ocena pojedynczych osób.</p>
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Zanim zaczniesz</div>
+            <ul class="checklist">
+              <li>badanie jest dla osób 18+,</li>
+              <li>dotyczy użytkowników chatbotów AI,</li>
+              <li>trwa około 10-15 minut,</li>
+              <li>nie jest diagnozą psychologiczną,</li>
+              <li>odpowiedzi są analizowane zbiorczo.</li>
+            </ul>
           </div>
-        </div>
+        </section>
       </div>
     </header>
 
     <main>
-      <section>
-        <div class="wrap grid">
-          <div class="panel">
-            <div class="eyebrow"><span class="dot"></span>Najważniejsze informacje</div>
-            <h2>Anonimowo, online i z czytelnym przebiegiem</h2>
-            <p>Formularz badawczy nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail uczestnika. Odpowiedzi będą analizowane wyłącznie zbiorczo.</p>
-            <div class="details-stack">
-              <details class="panel details-panel">
-                <summary>Dlaczego formularz jest obsługiwany przez Google Forms?</summary>
-                <p>Korzystamy z Google Forms, ponieważ umożliwia bezpieczne zebranie odpowiedzi i zapis danych w arkuszu. Formularz badawczy nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail.</p>
-              </details>
-              <details class="panel details-panel">
-                <summary>Czy komunikat Google o logowaniu oznacza zbieranie e-maila?</summary>
-                <p>Nie. Komunikat Google o możliwości zapisania postępów nie oznacza, że formularz badawczy zbiera adres e-mail.</p>
-              </details>
-            </div>
+      <section class="section" id="formularz" aria-labelledby="formularz-heading">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Formularz</div>
+            <h2 id="formularz-heading">Wersja osadzona ankiety</h2>
+            <p class="muted">Bezpośredni link do Google Forms pozostaje najlepszą ścieżką. Poniżej znajdziesz tę samą ankietę osadzoną na stronie.</p>
           </div>
-
-          <div class="info-grid">
-            <article class="info-card">
-              <div class="eyebrow"><span class="dot"></span>Anonimowo</div>
-              <h3>Bez danych kontaktowych</h3>
-              <p>Zakres formularza nie obejmuje danych potrzebnych do bezpośredniej identyfikacji uczestnika.</p>
-            </article>
-            <article class="info-card">
-              <div class="eyebrow"><span class="dot"></span>10-15 minut</div>
-              <h3>Orientacyjny czas udziału</h3>
-              <p>Wypełnienie ankiety zajmuje zwykle około 10-15 minut.</p>
-            </article>
-            <article class="info-card">
-              <div class="eyebrow"><span class="dot"></span>Online</div>
-              <h3>Udział przez internet</h3>
-              <p>Formularz działa na telefonie i komputerze bez potrzeby instalowania dodatkowych narzędzi.</p>
-            </article>
-            <article class="info-card">
-              <div class="eyebrow"><span class="dot"></span>Analiza zbiorcza</div>
-              <h3>Bez wyniku indywidualnego</h3>
-              <p>Badanie nie jest diagnozą psychologiczną, konsultacją ani formą terapii.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <div class="survey-transition" aria-hidden="true"></div>
-
-      <section id="formularz" class="survey-zone">
-        <div class="wrap survey-zone-inner">
-          <div class="eyebrow"><span class="dot"></span>Formularz badania</div>
-          <h2>Poniżej znajduje się właściwy formularz ankiety</h2>
-          <p class="lead">Po wypełnieniu kliknij „Prześlij” na końcu formularza.</p>
-
-          <div class="chip-row" aria-hidden="true">
-            <div class="chip-light">
-              <strong>Anonimowo</strong>
-              <span>bez danych kontaktowych</span>
-            </div>
-            <div class="chip-light">
-              <strong>10-15 minut</strong>
-              <span>orientacyjny czas</span>
-            </div>
-            <div class="chip-light">
-              <strong>Online</strong>
-              <span>formularz internetowy</span>
-            </div>
-            <div class="chip-light">
-              <strong>Analiza zbiorcza</strong>
-              <span>bez wyniku indywidualnego</span>
-            </div>
-          </div>
-
           <div class="form-shell" aria-label="Osadzony formularz Google Forms">
             <div class="form-shell-header">
-              <h3>Anonimowe badanie o korzystaniu z chatbotów AI</h3>
-              <p class="note">Jeśli formularz nie załaduje się poprawnie, skorzystaj z linku awaryjnego umieszczonego pod iframe.</p>
+              <h3>Anonimowa ankieta psychologiczna</h3>
+              <p class="muted">Jeśli formularz nie załaduje się poprawnie, użyj przycisku pod ramką.</p>
             </div>
-
             <iframe
               class="form-frame"
               src="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?embedded=true"
@@ -502,10 +84,9 @@
             >
               Ładowanie formularza nie jest obsługiwane w tej przeglądarce.
             </iframe>
-
             <div class="form-shell-footer">
-              <p class="note">Jeśli formularz nie ładuje się poprawnie, otwórz go w nowej karcie.</p>
-              <a class="btn secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Otwórz formularz</a>
+              <p class="muted">Jeśli wolisz nową kartę, skorzystaj z przycisku po prawej stronie.</p>
+              <a class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Otwórz formularz w Google Forms</a>
             </div>
           </div>
         </div>
@@ -514,12 +95,27 @@
 
     <footer class="footer">
       <div class="wrap">
-        <img class="footer-logo" src="../assets/logo-humanai-lab.png" alt="Human AI Lab">
-        <p>Human AI Lab - anonimowe badanie naukowe dotyczące korzystania z chatbotów AI.</p>
+        <p>Human AI Lab - anonimowe badanie psychologiczne o korzystaniu z chatbotów AI, samopoczuciu i poziomie lęku u dorosłych.</p>
         <p>Kontakt: <a href="mailto:humanai.lab.edu@gmail.com">humanai.lab.edu@gmail.com</a></p>
-        <p><a href="../o-projekcie/">O projekcie</a> · <a href="../polityka-prywatnosci/">Polityka prywatności</a></p>
+        <div class="footer-links" aria-label="Linki w stopce">
+          <a href="../">Strona główna</a>
+          <a href="../ankieta-chatgpt/">Ankieta ChatGPT</a>
+          <a href="../badanie-chatboty-ai-lek/">Chatboty AI a lęk</a>
+          <a href="../o-projekcie/">O projekcie</a>
+          <a href="../polityka-prywatnosci/">Polityka prywatności</a>
+        </div>
       </div>
     </footer>
+
+    <div class="sticky-cta" data-sticky-cta>
+      <div class="sticky-text">
+        <strong>Masz 10-15 minut?</strong>
+        <span>Otwórz ankietę od razu w Google Forms.</span>
+      </div>
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Wypełnij ankietę</a>
+    </div>
   </div>
+
+  <script src="../assets/site.js"></script>
 </body>
 </html>

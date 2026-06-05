@@ -3,763 +3,338 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Human AI Lab | Badanie o korzystaniu z chatbotów AI</title>
-  <meta name="description" content="Anonimowe badanie naukowe Human AI Lab dotyczące korzystania z chatbotów AI przez osoby dorosłe. Pomóż lepiej zrozumieć relację człowieka z narzędziami sztucznej inteligencji.">
-  <meta property="og:title" content="Human AI Lab - badanie o korzystaniu z chatbotów AI">
-  <meta property="og:description" content="Weź udział w anonimowym badaniu naukowym dotyczącym sposobów korzystania z chatbotów AI przez osoby dorosłe.">
-  <meta property="og:image" content="https://humanai-lab.com/assets/social-preview.png">
+  <title>Ankieta: ChatGPT, chatboty AI i lęk - badanie psychologiczne 18+ | Human AI Lab</title>
+  <meta name="description" content="Korzystasz z ChatGPT, Gemini, Claude lub Copilota? Weź udział w anonimowym badaniu psychologicznym o chatbotach AI, lęku i codziennym korzystaniu z technologii. Ankieta 18+, 10-15 minut.">
+  <link rel="canonical" href="https://humanai-lab.com/">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Korzystasz z ChatGPT? Pomóż w badaniu o AI i lęku">
+  <meta property="og:description" content="Anonimowa ankieta psychologiczna dla osób 18+. Badanie dotyczy chatbotów AI, takich jak ChatGPT, Gemini, Claude i Copilot. Wypełnienie zajmuje około 10-15 minut.">
   <meta property="og:url" content="https://humanai-lab.com/">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://humanai-lab.com/assets/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Korzystasz z ChatGPT? Pomóż w badaniu o AI i lęku">
+  <meta name="twitter:description" content="Anonimowa ankieta psychologiczna 18+. 10-15 minut. Pomóż zbadać korzystanie z chatbotów AI i poziom lęku.">
+  <meta name="twitter:image" content="https://humanai-lab.com/assets/social-preview.png">
   <link rel="icon" href="assets/logo-humanai-lab.png">
-  <style>
-    :root {
-      --bg: #06111f;
-      --bg-soft: #0b1728;
-      --bg-panel: #101b2d;
-      --line: rgba(255, 255, 255, 0.10);
-      --line-strong: rgba(110, 231, 249, 0.22);
-      --text: #f5f8ff;
-      --muted: #b8c9e6;
-      --accent: #6ee7f9;
-      --accent-blue: #2f80ff;
-      --light-bg: #f3f6fb;
-      --light-text: #111827;
-      --light-muted: #526174;
-      --light-line: rgba(15, 23, 42, 0.08);
-      --link: #0b63ce;
-      --glow: 0 26px 70px rgba(0, 0, 0, 0.36);
-      --radius: 28px;
-      --radius-sm: 18px;
-      --max: 1160px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(110, 231, 249, 0.12), transparent 30%),
-        radial-gradient(circle at 85% 18%, rgba(47, 128, 255, 0.12), transparent 24%),
-        linear-gradient(180deg, var(--bg) 0%, #081423 42%, #091120 100%);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .wrap {
-      width: min(var(--max), calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .site-shell {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .site-shell::before,
-    .site-shell::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      z-index: -1;
-      filter: blur(72px);
-      opacity: 0.4;
-    }
-
-    .site-shell::before {
-      top: -60px;
-      left: -40px;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: rgba(110, 231, 249, 0.16);
-    }
-
-    .site-shell::after {
-      right: -80px;
-      top: 280px;
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      background: rgba(47, 128, 255, 0.14);
-    }
-
-    header {
-      padding-bottom: 18px;
-    }
-
-    .hero {
-      display: grid;
-      gap: 24px;
-      padding: 32px 0 24px;
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 1;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin: 0;
-    }
-
-    h1 {
-      max-width: 11ch;
-      font-size: clamp(2.55rem, 10vw, 4.5rem);
-      line-height: 0.96;
-      letter-spacing: -0.06em;
-    }
-
-    h2 {
-      font-size: clamp(1.7rem, 5vw, 2.6rem);
-      line-height: 1.04;
-      letter-spacing: -0.05em;
-      margin-bottom: 14px;
-    }
-
-    h3 {
-      font-size: 1.05rem;
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-
-    .lead,
-    .section-copy p,
-    .section-lead,
-    .card p,
-    .step p,
-    .faq-item p,
-    .note,
-    .footer {
-      color: var(--muted);
-    }
-
-    .lead {
-      margin-top: 18px;
-      max-width: 58ch;
-      font-size: clamp(1rem, 2.9vw, 1.15rem);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 26px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 13px 20px;
-      border-radius: 14px;
-      border: 1px solid transparent;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn:focus-visible,
-    .brand:focus-visible,
-    details summary:focus-visible,
-    a:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-    }
-
-    .btn.primary {
-      color: #05111d;
-      background: linear-gradient(135deg, #d8fbff 0%, var(--accent) 50%, #67c3ff 100%);
-      box-shadow: 0 18px 44px rgba(47, 128, 255, 0.24);
-    }
-
-    .btn.secondary {
-      color: var(--text);
-      border-color: var(--line);
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .hero-panel {
-      position: relative;
-      min-height: 280px;
-      padding: 14px;
-      border-radius: 32px;
-      border: 1px solid rgba(110, 231, 249, 0.14);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
-        rgba(9, 19, 33, 0.76);
-      box-shadow: var(--glow);
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      top: 10%;
-      right: 8%;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(110, 231, 249, 0.2), transparent 68%);
-      filter: blur(28px);
-      opacity: 0.78;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero-panel::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(6, 17, 31, 0.1), rgba(6, 17, 31, 0.22)),
-        radial-gradient(circle at 14% 50%, rgba(6, 17, 31, 0.7), transparent 28%),
-        radial-gradient(circle at 88% 50%, rgba(6, 17, 31, 0.54), transparent 24%);
-      pointer-events: none;
-    }
-
-    .hero-visual {
-      width: 100%;
-      height: 100%;
-      min-height: 248px;
-      object-fit: cover;
-      border-radius: 24px;
-      filter: saturate(1.08) contrast(1.03);
-    }
-
-    .hero-chips {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      z-index: 1;
-    }
-
-    .chip {
-      padding: 12px 12px 11px;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: linear-gradient(180deg, rgba(8, 16, 28, 0.78), rgba(8, 16, 28, 0.6));
-      backdrop-filter: blur(16px);
-      text-align: center;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
-    }
-
-    .chip strong {
-      display: block;
-      margin-bottom: 2px;
-      font-size: 1rem;
-      color: var(--text);
-    }
-
-    .chip span {
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    main {
-      padding-bottom: 56px;
-    }
-
-    section {
-      padding: 34px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .mini-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 12px;
-      color: var(--accent);
-      font-size: 0.8rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    .mini-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent-blue));
-      box-shadow: 0 0 0 6px rgba(110, 231, 249, 0.08);
-    }
-
-    .cards-grid,
-    .steps-grid,
-    .faq-grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    .cards-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .card,
-    .step,
-    .faq-item {
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
-      backdrop-filter: blur(14px);
-    }
-
-    .card,
-    .step {
-      padding: 18px;
-      min-height: 100%;
-    }
-
-    .section-copy {
-      display: grid;
-      gap: 14px;
-    }
-
-    .section-copy a.inline-link,
-    .faq-more {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .steps-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .step-index {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      margin-bottom: 12px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, rgba(221, 252, 255, 0.96), rgba(110, 231, 249, 0.96));
-      color: #05111d;
-      font-weight: 800;
-      font-size: 0.95rem;
-    }
-
-    .small-note {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .survey-transition {
-      position: relative;
-      height: 150px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 18% 18%, rgba(110, 231, 249, 0.12), transparent 22%),
-        radial-gradient(circle at 78% 36%, rgba(47, 128, 255, 0.1), transparent 28%),
-        linear-gradient(180deg, rgba(6, 17, 31, 0) 0%, rgba(22, 37, 56, 0.34) 34%, rgba(205, 220, 236, 0.8) 78%, rgba(243, 246, 251, 0.98) 100%);
-      border-bottom-left-radius: 34px;
-      border-bottom-right-radius: 34px;
-    }
-
-    .survey-transition::before,
-    .survey-transition::after {
-      content: "";
-      position: absolute;
-      pointer-events: none;
-      filter: blur(30px);
-    }
-
-    .survey-transition::before {
-      left: 8%;
-      bottom: 26px;
-      width: 180px;
-      height: 60px;
-      border-radius: 999px;
-      background: rgba(110, 231, 249, 0.12);
-    }
-
-    .survey-transition::after {
-      right: 10%;
-      bottom: 18px;
-      width: 220px;
-      height: 76px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.26);
-    }
-
-    .survey-zone {
-      background:
-        radial-gradient(circle at top center, rgba(255, 255, 255, 0.99), rgba(243, 246, 251, 0.99)),
-        var(--light-bg);
-      color: var(--light-text);
-      border-top-left-radius: 38px;
-      border-top-right-radius: 38px;
-      margin-top: -24px;
-      box-shadow: 0 -12px 36px rgba(6, 17, 31, 0.08);
-    }
-
-    .survey-zone .wrap {
-      width: min(980px, calc(100% - 40px));
-    }
-
-    .survey-zone .mini-label {
-      color: var(--link);
-    }
-
-    .survey-zone h2,
-    .survey-zone h3 {
-      color: var(--light-text);
-    }
-
-    .survey-zone p,
-    .survey-zone .lead,
-    .survey-zone .note,
-    .survey-zone .chip-light span {
-      color: var(--light-muted);
-    }
-
-    .survey-zone a {
-      color: var(--link);
-    }
-
-    .survey-zone-inner {
-      padding: 42px 0 60px;
-    }
-
-    .chip-row {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin: 20px 0 22px;
-    }
-
-    .chip-light {
-      padding: 12px 12px 11px;
-      border-radius: 16px;
-      border: 1px solid var(--light-line);
-      background: rgba(255, 255, 255, 0.94);
-      box-shadow: 0 8px 28px rgba(10, 20, 40, 0.08);
-      text-align: center;
-    }
-
-    .chip-light strong {
-      display: block;
-      margin-bottom: 3px;
-      color: var(--light-text);
-      font-size: 0.98rem;
-    }
-
-    .form-shell {
-      overflow: hidden;
-      border-radius: 24px;
-      border: 1px solid var(--light-line);
-      background: #fff;
-      box-shadow: 0 20px 60px rgba(10, 20, 40, 0.12);
-    }
-
-    .form-shell-header,
-    .form-shell-footer {
-      padding: 18px 20px;
-      background: rgba(255, 255, 255, 0.98);
-    }
-
-    .form-shell-header {
-      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
-    }
-
-    .form-shell-footer {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      border-top: 1px solid rgba(15, 23, 42, 0.06);
-    }
-
-    .form-frame {
-      display: block;
-      width: 100%;
-      height: 84vh;
-      min-height: 720px;
-      border: 0;
-      background: #fff;
-    }
-
-    .survey-zone .btn.secondary {
-      color: #0f172a;
-      border-color: rgba(15, 23, 42, 0.12);
-      background: #ffffff;
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
-    }
-
-    .faq-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .faq-item {
-      overflow: hidden;
-    }
-
-    .faq-item summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 18px 18px 14px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .faq-item summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-item p {
-      padding: 0 18px 18px;
-    }
-
-    .footer {
-      padding: 18px 0 34px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      font-size: 0.95rem;
-    }
-
-    .footer-logo {
-      display: block;
-      width: min(160px, 48vw);
-      height: auto;
-      margin-bottom: 14px;
-      opacity: 0.74;
-    }
-
-    .footer p + p {
-      margin-top: 8px;
-    }
-
-    @media (min-width: 620px) {
-      .cards-grid,
-      .faq-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+  <link rel="stylesheet" href="assets/site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Human AI Lab",
+        "url": "https://humanai-lab.com/"
+      },
+      {
+        "@type": "ResearchProject",
+        "name": "Human AI Lab - badanie o korzystaniu z chatbotów AI i poziomie lęku",
+        "description": "Anonimowe badanie psychologiczne dotyczące związku między korzystaniem z chatbotów AI, takich jak ChatGPT, Gemini, Claude i Copilot, a poziomem lęku u osób dorosłych.",
+        "url": "https://humanai-lab.com/",
+        "creator": {
+          "@type": "Person",
+          "name": "Feliks Mamczur"
+        },
+        "keywords": "chatboty AI, ChatGPT, lęk, psychologia, badanie psychologiczne, ankieta naukowa, ankieta ChatGPT, praca magisterska",
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Osoby dorosłe 18+ korzystające z chatbotów AI"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Kto może wziąć udział w badaniu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "W badaniu mogą wziąć udział osoby dorosłe, które korzystały z chatbotów AI, takich jak ChatGPT, Gemini, Claude, Copilot lub podobne narzędzia."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czy badanie dotyczy tylko ChatGPT?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nie. Badanie dotyczy różnych chatbotów AI, w tym ChatGPT, Gemini, Claude, Copilot i podobnych narzędzi konwersacyjnych."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czy muszę często korzystać z AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nie. Ważne są różne doświadczenia - zarówno codzienne, jak i okazjonalne korzystanie z chatbotów AI."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czy ankieta jest anonimowa?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tak. Formularz nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail. Odpowiedzi będą analizowane wyłącznie zbiorczo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ile trwa udział?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wypełnienie ankiety zajmuje zwykle około 10-15 minut."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czy otrzymam wynik poziomu lęku?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Nie. Badanie nie zwraca wyniku indywidualnego. Nie jest diagnozą, konsultacją psychologiczną ani terapią."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do czego zostaną wykorzystane odpowiedzi?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Odpowiedzi zostaną wykorzystane do analizy naukowej w ramach pracy magisterskiej z psychologii."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Czy mogę wysłać ankietę innym osobom?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tak. Udostępnienie linku osobom dorosłym, które korzystają z chatbotów AI, bardzo pomaga w zebraniu większej i bardziej zróżnicowanej próby."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Strona główna",
+            "item": "https://humanai-lab.com/"
+          }
+        ]
       }
-    }
-
-    @media (min-width: 768px) {
-      .wrap {
-        width: min(var(--max), calc(100% - 48px));
-      }
-
-      section {
-        padding: 56px 0;
-      }
-
-      .cards-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .steps-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .hero-chips,
-      .chip-row {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .faq-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (min-width: 980px) {
-      .hero {
-        grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
-        gap: 34px;
-        padding: 46px 0 30px;
-      }
-
-      .hero-copy {
-        padding-top: 16px;
-      }
-    }
-
-    @media (min-width: 1280px) {
-      section {
-        padding: 74px 0;
-      }
-
-      h1 {
-        font-size: clamp(4rem, 4.7vw, 4.9rem);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .footer-logo {
-        width: min(132px, 52vw);
-      }
-
-      .form-frame {
-        height: 86vh;
-        min-height: 680px;
-      }
-    }
-  </style>
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="site-shell">
-    <header id="top">
+    <header class="site-header" id="top">
       <div class="wrap">
-        <div class="hero">
+        <div class="topbar" aria-label="Nagłówek Human AI Lab">
+          <a class="brand" href="./" aria-label="Human AI Lab - strona główna">
+            <img src="assets/logo-humanai-lab.png" alt="Human AI Lab">
+          </a>
+          <div class="topbar-note">Anonimowa ankieta psychologiczna dla osób 18+</div>
+        </div>
+
+        <nav class="breadcrumbs" aria-label="Okruszki">
+          <a href="./">Strona główna</a>
+        </nav>
+
+        <section class="hero" aria-label="Sekcja główna badania">
           <div class="hero-copy">
-            <h1>Badanie o korzystaniu z chatbotów AI</h1>
-            <p class="lead">Pomóż lepiej zrozumieć, jak osoby dorosłe korzystają z chatbotów AI w codziennym życiu, pracy, nauce i porządkowaniu myśli.</p>
-            <div class="hero-actions">
-              <a class="btn primary" href="#formularz">Weź udział w badaniu</a>
-              <a class="btn secondary" href="o-projekcie/">O projekcie</a>
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Badanie psychologiczne</div>
+            <h1>Korzystasz z ChatGPT? Pomóż zbadać AI i lęk</h1>
+            <p class="lead">Weź udział w anonimowym badaniu psychologicznym o korzystaniu z chatbotów AI, takich jak ChatGPT, Gemini, Claude i Copilot. Badanie dotyczy codziennego używania AI, samopoczucia i poziomu lęku u osób dorosłych.</p>
+
+            <div class="highlight-list" aria-label="Najważniejsze informacje">
+              <span class="highlight-pill">18+</span>
+              <span class="highlight-pill">anonimowo</span>
+              <span class="highlight-pill">10-15 minut</span>
+              <span class="highlight-pill">bez wyniku indywidualnego</span>
             </div>
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Wypełnij ankietę teraz</a>
+              <a class="btn btn-secondary" href="#o-badaniu">Zobacz szczegóły badania</a>
+            </div>
+
+            <a class="micro-link" href="#formularz">Wolisz wypełnić na stronie? Przejdź do formularza osadzonego</a>
+            <p class="trust-note">Twój udział pomaga opisać zjawisko, które dopiero zaczyna być badane w psychologii. Liczy się każdy sposób korzystania z AI - także sporadyczny.</p>
           </div>
 
-          <div class="hero-panel" aria-label="Abstrakcyjna grafika sieci połączeń w naukowym stylu">
+          <div class="hero-panel" aria-label="Grafika Human AI Lab">
             <img class="hero-visual" src="hero-visual.svg" alt="Abstrakcyjna grafika przedstawiająca sieć połączeń i świetlnych punktów na ciemnym tle">
-            <div class="hero-chips" aria-hidden="true">
-              <div class="chip">
-                <strong>10-15 minut</strong>
-                <span>orientacyjny czas</span>
+            <div class="hero-chip-grid" aria-hidden="true">
+              <div class="hero-chip">
+                <strong>ChatGPT i więcej</strong>
+                <span>Gemini, Claude, Copilot i podobne narzędzia</span>
               </div>
-              <div class="chip">
-                <strong>Anonimowo</strong>
-                <span>bez danych kontaktowych</span>
+              <div class="hero-chip">
+                <strong>Dobrowolnie</strong>
+                <span>udział możesz przerwać w każdej chwili</span>
               </div>
-              <div class="chip">
+              <div class="hero-chip">
                 <strong>Online</strong>
-                <span>formularz internetowy</span>
+                <span>telefon lub komputer</span>
               </div>
-              <div class="chip">
-                <strong>18+</strong>
-                <span>udział osób dorosłych</span>
+              <div class="hero-chip">
+                <strong>Naukowo</strong>
+                <span>analiza odpowiedzi wyłącznie zbiorczo</span>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </header>
 
     <main>
-      <section>
+      <section class="section" aria-labelledby="kwalifikacja-heading">
         <div class="wrap">
-          <div class="cards-grid">
-            <article class="card">
-              <div class="mini-label"><span class="mini-dot"></span>Dla osób dorosłych</div>
-              <h3>Udział dla osób 18+</h3>
-              <p>Badanie jest przeznaczone wyłącznie dla osób pełnoletnich.</p>
-            </article>
-            <article class="card">
-              <div class="mini-label"><span class="mini-dot"></span>Dla użytkowników AI</div>
-              <h3>Wystarczy doświadczenie z chatbotami</h3>
-              <p>Możesz wziąć udział, jeśli korzystałeś lub korzystałaś z narzędzi takich jak ChatGPT, Gemini, Claude lub Copilot.</p>
-            </article>
-            <article class="card">
-              <div class="mini-label"><span class="mini-dot"></span>Bez wyniku indywidualnego</div>
-              <h3>Liczy się obraz zbiorczy</h3>
-              <p>Odpowiedzi są analizowane wyłącznie zbiorczo i nie służą ocenie pojedynczych osób.</p>
-            </article>
+          <div class="section-head">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Czy możesz wziąć udział?</div>
+            <h2 id="kwalifikacja-heading">Czy możesz wziąć udział?</h2>
+          </div>
+          <div class="grid-2">
+            <div class="panel">
+              <p class="muted">Możesz wziąć udział, jeśli:</p>
+              <ul class="checklist">
+                <li>masz co najmniej 18 lat,</li>
+                <li>korzystałeś lub korzystałaś z chatbota AI, np. ChatGPT, Gemini, Claude, Copilot albo podobnego narzędzia,</li>
+                <li>chcesz poświęcić około 10-15 minut na anonimową ankietę.</li>
+              </ul>
+              <p class="support-line">Nie musisz korzystać z AI codziennie. Ważne są różne doświadczenia - także rzadkie, okazjonalne i ostrożne korzystanie.</p>
+              <div class="cta-row">
+                <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Tak, chcę wypełnić ankietę</a>
+              </div>
+            </div>
+            <div class="fact-card">
+              <div class="eyebrow"><span class="eyebrow-dot"></span>Na start</div>
+              <h3>W 5 sekund powinno być jasne, czy to badanie jest dla Ciebie</h3>
+              <div class="chips-row" aria-hidden="true">
+                <div class="chip-soft">
+                  <strong>czego dotyczy</strong>
+                  <span>AI, codzienne używanie i lęk</span>
+                </div>
+                <div class="chip-soft">
+                  <strong>dla kogo</strong>
+                  <span>osoby dorosłe korzystające z AI</span>
+                </div>
+                <div class="chip-soft">
+                  <strong>ile trwa</strong>
+                  <span>około 10-15 minut</span>
+                </div>
+                <div class="chip-soft">
+                  <strong>jak wygląda</strong>
+                  <span>anonimowo i bez wyniku indywidualnego</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="o-badaniu">
-        <div class="wrap section-copy">
-          <div class="mini-label"><span class="mini-dot"></span>O co chodzi?</div>
-          <h2>Badamy sposoby korzystania z chatbotów AI</h2>
-          <p>Badanie dotyczy sposobów korzystania z chatbotów AI przez osoby dorosłe - nie tylko do pracy i nauki, ale też do organizowania myśli, szukania informacji i codziennego wsparcia poznawczego.</p>
-          <p>Interesują nas wzorce korzystania w grupie, a nie ocena pojedynczych osób.</p>
-          <a class="inline-link" href="o-projekcie/">Dowiedz się więcej o projekcie</a>
-        </div>
-      </section>
-
-      <section>
+      <section class="section" aria-labelledby="autorefleksja-heading">
         <div class="wrap">
-          <div class="mini-label"><span class="mini-dot"></span>Jak wygląda udział?</div>
-          <h2>Trzy krótkie kroki</h2>
-          <div class="steps-grid">
-            <article class="step">
-              <div class="step-index">1</div>
-              <h3>Czytasz informację</h3>
-              <p>Na początku formularza znajdziesz krótką informację o badaniu.</p>
+          <div class="section-head">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Krótka autorefleksja</div>
+            <h2 id="autorefleksja-heading">Zatrzymaj się na 10 minut i zobacz, jak korzystasz z AI</h2>
+            <p class="muted">To badanie nie jest diagnozą i nie zwraca wyniku indywidualnego. Może jednak pomóc Ci na chwilę przyjrzeć się temu, kiedy sięgasz po chatboty AI, czy używasz ich do pracy, nauki, organizowania myśli, szukania wsparcia albo radzenia sobie z napięciem.</p>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Praca i nauka</h3>
+              <p>Jak często AI pomaga Ci pisać, analizować, szukać informacji albo porządkować zadania?</p>
             </article>
-            <article class="step">
-              <div class="step-index">2</div>
-              <h3>Wypełniasz ankietę</h3>
-              <p>Odpowiesz na pytania dotyczące korzystania z chatbotów AI i samopoczucia.</p>
+            <article class="card">
+              <h3>Emocje i napięcie</h3>
+              <p>Czy zdarza Ci się korzystać z AI, gdy czujesz stres, niepokój albo potrzebujesz szybkiego wsparcia?</p>
             </article>
-            <article class="step">
-              <div class="step-index">3</div>
-              <h3>Przesyłasz odpowiedzi</h3>
-              <p>Dane będą analizowane wyłącznie zbiorczo.</p>
+            <article class="card">
+              <h3>Codzienne nawyki</h3>
+              <p>Czy AI jest dla Ciebie narzędziem okazjonalnym, codziennym, czy coraz bardziej automatycznym?</p>
             </article>
           </div>
-          <p class="small-note">Badanie nie jest diagnozą psychologiczną, konsultacją ani formą terapii.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Weź udział w badaniu</a>
+          </div>
         </div>
       </section>
 
-      <div class="survey-transition" aria-hidden="true"></div>
+      <section class="section" id="o-badaniu" aria-labelledby="dlaczego-heading">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Kontekst naukowy</div>
+            <h2 id="dlaczego-heading">Dlaczego badamy chatboty AI i lęk?</h2>
+          </div>
+          <div class="grid-2">
+            <div class="panel section-copy">
+              <p>Chatboty AI, takie jak ChatGPT, Gemini, Claude czy Copilot, coraz częściej są wykorzystywane nie tylko do pracy i nauki, ale także do porządkowania myśli, szukania informacji, obniżania napięcia i radzenia sobie z codziennym stresem.</p>
+              <p>Celem badania jest sprawdzenie, czy sposób korzystania z chatbotów AI wiąże się z poziomem lęku oraz z wybranymi wzorcami korzystania z technologii. Badanie ma charakter naukowy, anonimowy i jest realizowane przez Feliksa Mamczura w ramach pracy magisterskiej z psychologii.</p>
+              <p><a class="inline-link" href="badanie-chatboty-ai-lek/">Więcej o badaniu chatbotów AI i lęku</a></p>
+            </div>
+            <div class="summary-strip">
+              <div class="eyebrow"><span class="eyebrow-dot"></span>Najważniejsze motywatory</div>
+              <ul class="plain-list">
+                <li>To badanie jest dla osób, które znają już chatboty AI z codziennego używania.</li>
+                <li>Udział jest prosty - online, anonimowo, bez wyniku indywidualnego.</li>
+                <li>Pomagasz lepiej zrozumieć, jak AI wpisuje się w codzienne funkcjonowanie i emocje.</li>
+              </ul>
+              <p class="support-line"><a class="inline-link" href="ankieta-chatgpt/">Szybka wersja ankiety ChatGPT</a> dla osób, które chcą od razu przejść do formularza.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      <section id="formularz" class="survey-zone">
-        <div class="wrap survey-zone-inner">
-          <div class="mini-label"><span class="mini-dot"></span>Formularz badania</div>
-          <h2>Wypełnij badanie online</h2>
-          <p class="lead">Formularz jest anonimowy i zajmuje zwykle około 10-15 minut.</p>
-          <p class="note" style="margin-top:10px;">Jeśli formularz nie wyświetla się poprawnie, możesz otworzyć go w nowej karcie.</p>
+      <section class="section" aria-labelledby="glos-heading">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Znaczenie społeczne</div>
+            <h2 id="glos-heading">Twój głos naprawdę ma znaczenie</h2>
+          </div>
+          <div class="grid-2">
+            <div class="panel section-copy">
+              <p>Badania o korzystaniu z chatbotów AI są wciąż nowe. Żeby opisać to zjawisko rzetelnie, potrzebne są odpowiedzi różnych osób - tych, które używają AI codziennie, i tych, które robią to rzadko.</p>
+              <p>Każda odpowiedź pomaga lepiej zrozumieć, jak dorośli korzystają z AI w pracy, nauce, codziennym życiu i sytuacjach napięcia emocjonalnego.</p>
+              <div class="cta-row">
+                <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Dorzuć swój głos do badania</a>
+              </div>
+            </div>
+            <div class="grid-2">
+              <article class="card">
+                <h3>Sporadyczne korzystanie też jest ważne</h3>
+                <p>Nie interesują nas tylko intensywni użytkownicy. Ważne są także ostrożne, okazjonalne i zadaniowe sposoby korzystania z AI.</p>
+              </article>
+              <article class="card">
+                <h3>Różne narzędzia, jeden kontekst</h3>
+                <p>Badanie obejmuje ChatGPT, Gemini, Claude, Copilot i podobne narzędzia konwersacyjne.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div class="chip-row" aria-hidden="true">
-            <div class="chip-light">
-              <strong>Anonimowo</strong>
-              <span>bez danych kontaktowych</span>
-            </div>
-            <div class="chip-light">
-              <strong>10-15 minut</strong>
-              <span>orientacyjny czas</span>
-            </div>
-            <div class="chip-light">
-              <strong>Online</strong>
-              <span>formularz internetowy</span>
-            </div>
-            <div class="chip-light">
-              <strong>Analiza zbiorcza</strong>
-              <span>bez wyniku indywidualnego</span>
+      <section class="section" id="formularz" aria-labelledby="formularz-heading">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Formularz badania</div>
+            <h2 id="formularz-heading">Wypełnij ankietę najszybciej, jak Ci wygodnie</h2>
+            <p class="muted">Najprościej otworzyć formularz w nowej karcie. Jeśli wolisz, możesz też skorzystać z wersji osadzonej poniżej.</p>
+          </div>
+
+          <div class="cta-panel">
+            <h3>Primary CTA prowadzi bezpośrednio do formularza Google Forms</h3>
+            <p class="muted">To najszybsza droga do udziału w badaniu.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Wypełnij ankietę teraz</a>
+              <a class="btn btn-secondary" href="badanie/">Przejdź do strony szybkiego wypełnienia</a>
             </div>
           </div>
 
-          <div class="form-shell" aria-label="Osadzony formularz Google Forms">
+          <div class="form-shell" style="margin-top: 22px;" aria-label="Osadzony formularz Google Forms">
             <div class="form-shell-header">
-              <h3>Anonimowe badanie o korzystaniu z chatbotów AI</h3>
-              <p class="note">Po wypełnieniu kliknij „Prześlij” na końcu formularza.</p>
+              <h3>Osadzony formularz ankiety</h3>
+              <p class="muted">Jeśli formularz nie załaduje się poprawnie, skorzystaj z linku pod ramką.</p>
             </div>
 
             <iframe
@@ -773,48 +348,97 @@
             </iframe>
 
             <div class="form-shell-footer">
-              <p class="note">Jeśli formularz nie ładuje się poprawnie, otwórz go w nowej karcie.</p>
-              <a class="btn secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Otwórz formularz w Google Forms</a>
+              <p class="muted">Jeśli formularz ładuje się wolno, otwórz go bezpośrednio w Google Forms.</p>
+              <a class="btn btn-secondary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Otwórz formularz w Google Forms</a>
             </div>
           </div>
         </div>
       </section>
 
-      <section>
+      <section class="section" aria-labelledby="udostepnianie-heading">
         <div class="wrap">
-          <div class="mini-label"><span class="mini-dot"></span>FAQ</div>
-          <h2>Najważniejsze pytania</h2>
+          <div class="share-panel">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>Pomoc w rekrutacji</div>
+            <h2 id="udostepnianie-heading">Możesz pomóc jeszcze bardziej</h2>
+            <p class="muted">Po wypełnieniu ankiety możesz wysłać link jednej osobie, która korzysta z ChatGPT albo innych chatbotów AI. To realnie pomaga zebrać większą i bardziej zróżnicowaną próbę.</p>
+            <div class="share-grid" style="margin-top: 18px;">
+              <button class="share-button primary" type="button" data-copy-link="https://humanai-lab.com/">Kopiuj link do badania</button>
+              <a class="share-button secondary" href="https://wa.me/?text=Hej%2C%20bior%C4%99%20udzia%C5%82%20w%20anonimowym%20badaniu%20psychologicznym%20o%20korzystaniu%20z%20chatbot%C3%B3w%20AI%2C%20ChatGPT%20i%20poziomie%20l%C4%99ku.%20Je%C5%9Bli%20korzystasz%20z%20AI%2C%20mo%C5%BCesz%20pom%C3%B3c%20wype%C5%82niaj%C4%85c%20ankiet%C4%99%2018%2B%2C%2010-15%20minut%3A%20https%3A%2F%2Fhumanai-lab.com%2F" target="_blank" rel="noopener noreferrer">Udostępnij przez WhatsApp</a>
+              <a class="share-button secondary" href="mailto:?subject=Anonimowe%20badanie%20o%20chatbotach%20AI&body=Hej%2C%20bior%C4%99%20udzia%C5%82%20w%20anonimowym%20badaniu%20psychologicznym%20o%20korzystaniu%20z%20chatbot%C3%B3w%20AI%2C%20ChatGPT%20i%20poziomie%20l%C4%99ku.%20Je%C5%9Bli%20korzystasz%20z%20AI%2C%20mo%C5%BCesz%20pom%C3%B3c%20wype%C5%82niaj%C4%85c%20ankiet%C4%99%2018%2B%2C%2010-15%20minut%3A%20https%3A%2F%2Fhumanai-lab.com%2F">Wyślij mailem</a>
+            </div>
+            <p class="share-note">Hej, biorę udział w anonimowym badaniu psychologicznym o korzystaniu z chatbotów AI, ChatGPT i poziomie lęku. Jeśli korzystasz z AI, możesz pomóc wypełniając ankietę 18+, 10-15 minut: https://humanai-lab.com/</p>
+            <div class="share-status" data-share-status aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="faq-heading">
+        <div class="wrap">
+          <div class="section-head">
+            <div class="eyebrow"><span class="eyebrow-dot"></span>FAQ</div>
+            <h2 id="faq-heading">Najczęstsze pytania o ankietę ChatGPT, AI i lęku</h2>
+          </div>
           <div class="faq-grid">
             <details class="faq-item">
-              <summary>Czy badanie jest anonimowe?</summary>
-              <p>Tak. Formularz nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail.</p>
+              <summary>Kto może wziąć udział w badaniu?</summary>
+              <p>W badaniu mogą wziąć udział osoby dorosłe, które korzystały z chatbotów AI, takich jak ChatGPT, Gemini, Claude, Copilot lub podobne narzędzia.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Czy badanie dotyczy tylko ChatGPT?</summary>
+              <p>Nie. Badanie dotyczy różnych chatbotów AI, w tym ChatGPT, Gemini, Claude, Copilot i podobnych narzędzi konwersacyjnych.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Czy muszę często korzystać z AI?</summary>
+              <p>Nie. Ważne są różne doświadczenia - zarówno codzienne, jak i okazjonalne korzystanie z chatbotów AI.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Czy ankieta jest anonimowa?</summary>
+              <p>Tak. Formularz nie zbiera imienia, nazwiska, numeru telefonu ani adresu e-mail. Odpowiedzi będą analizowane wyłącznie zbiorczo.</p>
             </details>
             <details class="faq-item">
               <summary>Ile trwa udział?</summary>
-              <p>Zwykle około 10-15 minut.</p>
+              <p>Wypełnienie ankiety zajmuje zwykle około 10-15 minut.</p>
             </details>
             <details class="faq-item">
-              <summary>Czy otrzymam wynik indywidualny?</summary>
-              <p>Nie. Badanie służy analizie zbiorczych wzorców odpowiedzi.</p>
+              <summary>Czy otrzymam wynik poziomu lęku?</summary>
+              <p>Nie. Badanie nie zwraca wyniku indywidualnego. Nie jest diagnozą, konsultacją psychologiczną ani terapią.</p>
             </details>
             <details class="faq-item">
-              <summary>Czy to jest diagnoza albo konsultacja?</summary>
-              <p>Nie. Badanie nie jest diagnozą psychologiczną, konsultacją ani formą terapii.</p>
+              <summary>Do czego zostaną wykorzystane odpowiedzi?</summary>
+              <p>Odpowiedzi zostaną wykorzystane do analizy naukowej w ramach pracy magisterskiej z psychologii.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Czy mogę wysłać ankietę innym osobom?</summary>
+              <p>Tak. Udostępnienie linku osobom dorosłym, które korzystają z chatbotów AI, bardzo pomaga w zebraniu większej i bardziej zróżnicowanej próby.</p>
             </details>
           </div>
-          <p class="small-note"><a class="faq-more" href="o-projekcie/">Zobacz więcej informacji o projekcie</a></p>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="wrap">
-        <img class="footer-logo" src="assets/logo-humanai-lab.png" alt="Human AI Lab">
-        <p>Human AI Lab - anonimowe badanie naukowe dotyczące korzystania z chatbotów AI.</p>
+        <p>Human AI Lab - anonimowe badanie psychologiczne o korzystaniu z chatbotów AI, samopoczuciu i poziomie lęku u dorosłych.</p>
         <p>Kontakt: <a href="mailto:humanai.lab.edu@gmail.com">humanai.lab.edu@gmail.com</a></p>
-        <p><a href="o-projekcie/">O projekcie</a> · <a href="polityka-prywatnosci/">Polityka prywatności</a></p>
+        <div class="footer-links" aria-label="Linki w stopce">
+          <a href="./">Strona główna</a>
+          <a href="ankieta-chatgpt/">Ankieta ChatGPT</a>
+          <a href="badanie-chatboty-ai-lek/">Chatboty AI a lęk</a>
+          <a href="o-projekcie/">O projekcie</a>
+          <a href="polityka-prywatnosci/">Polityka prywatności</a>
+        </div>
       </div>
     </footer>
+
+    <div class="sticky-cta" data-sticky-cta>
+      <div class="sticky-text">
+        <strong>Masz 10-15 minut?</strong>
+        <span>Dorzuć swój głos do badania.</span>
+      </div>
+      <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfuj0BNkU0sBaPgfFbiwoue3g7htANnou4H53B8lnzWRRyUsw/viewform?usp=header" target="_blank" rel="noopener noreferrer">Wypełnij ankietę</a>
+    </div>
   </div>
+
+  <script src="assets/site.js"></script>
 </body>
 </html>
