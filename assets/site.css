@@ -428,28 +428,39 @@ main {
 
 .chips-row {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 10px;
   margin-top: 20px;
 }
 
 .chip-soft {
-  padding: 12px 12px 11px;
+  min-height: auto;
+  padding: 16px;
   border-radius: 16px;
   border: 1px solid var(--line-strong);
   background: rgba(110, 231, 249, 0.05);
-  text-align: center;
+  text-align: left;
 }
 
 .chip-soft strong {
   display: block;
+  line-height: 1.25;
+  margin-bottom: 6px;
   color: var(--text);
   font-size: 0.98rem;
 }
 
 .chip-soft span {
+  display: block;
+  line-height: 1.5;
   color: var(--muted);
   font-size: 0.84rem;
+}
+
+@media (min-width: 640px) {
+  .chips-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .checklist,
@@ -588,6 +599,14 @@ main {
   font-size: 0.95rem;
 }
 
+.footer-logo {
+  display: block;
+  width: min(160px, 48vw);
+  height: auto;
+  margin-bottom: 14px;
+  opacity: 0.74;
+}
+
 .footer p + p {
   margin-top: 8px;
 }
@@ -687,8 +706,7 @@ main {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .hero-chip-grid,
-  .chips-row {
+  .hero-chip-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
@@ -733,9 +751,8 @@ main {
 }
 
 @media (max-width: 480px) {
-  .brand img {
-    height: clamp(46px, 14vw, 72px);
-    max-width: min(320px, 74vw);
+  .footer-logo {
+    width: min(132px, 52vw);
   }
 
   .hero-copy,

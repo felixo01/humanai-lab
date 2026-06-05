@@ -86,6 +86,55 @@ test.describe('Human AI Lab static site', () => {
     }
   });
 
+  test('public pages do not render logo in header', async ({ page }) => {
+    for (const item of pages) {
+      await page.goto(item.path);
+      await expect(page.locator('.site-header .brand img')).toHaveCount(0);
+    }
+  });
+
+  test('public pages render one visible footer logo', async ({ page }) => {
+    for (const item of pages) {
+      await page.goto(item.path);
+      const footerLogo = page.locator('footer .footer-logo');
+      await expect(footerLogo).toHaveCount(1);
+      await expect(footerLogo).toBeVisible();
+    }
+  });
+
+  test('home page chips in qualification section stay readable on desktop', async ({ page }) => {
+    await page.setViewportSize({ width: 1365, height: 900 });
+    await page.goto('/');
+
+    const chips = page.locator('section[aria-labelledby="kwalifikacja-heading"] .chip-soft');
+    await expect(chips).toHaveCount(4);
+
+    const widths = await chips.evaluateAll((elements) =>
+      elements.map((element) => Math.round(element.getBoundingClientRect().width))
+    );
+
+    for (const width of widths) {
+      expect(width).toBeGreaterThanOrEqual(180);
+    }
+  });
+
+  test('key public pages do not cause horizontal scroll', async ({ page }) => {
+    const routes = ['/', '/o-projekcie/', '/badanie/', '/ankieta-chatgpt/', '/badanie-chatboty-ai-lek/'];
+
+    for (const route of routes) {
+      await page.goto(route);
+      const dimensions = await page.evaluate(() => ({
+        scrollWidth: document.documentElement.scrollWidth,
+        clientWidth: document.documentElement.clientWidth
+      }));
+
+      expect(
+        dimensions.scrollWidth,
+        `${route} should not introduce horizontal scroll`
+      ).toBeLessThanOrEqual(dimensions.clientWidth + 1);
+    }
+  });
+
   test('main navigation and footer links do not point to missing local routes', async ({ page, request }) => {
     for (const item of pages) {
       await page.goto(item.path);
